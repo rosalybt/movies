@@ -1,4 +1,4 @@
-import Item from './itemList'
+import Item from './ItemList'
 import styled from 'styled-components'
 
 
@@ -10,6 +10,7 @@ const ContainerMovieList = styled.div`
 display: flex;
 flex-direction: column;
 max-width:500px;
+height: 550px
 `
 
 const ContainerTitle = styled.div`
@@ -21,6 +22,10 @@ color: white;
 text-align: center;
 `
 
+const Container = styled.div`
+overflow-y: scroll
+`
+
 
 const MovieList = ({ array, listName }) => {
     return (
@@ -30,7 +35,7 @@ const MovieList = ({ array, listName }) => {
                     {listName}
                 </Title>
             </ContainerTitle>
-            <div>
+            <Container>
                 <List>
                     {array.map(movie => {
                         return (
@@ -44,7 +49,7 @@ const MovieList = ({ array, listName }) => {
 
                     })}
                 </List>
-            </div>
+            </Container>
         </ContainerMovieList>
     )
 }

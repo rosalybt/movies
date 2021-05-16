@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
 const ContainerItem = styled.div`
 display: flex;
 align-items: center;
-padding: 0 5px 0 5px;
+padding: 0 5px;
 justify-content: space-between;
 border-bottom: 2px solid #f5f2f2;
 `
@@ -26,10 +26,10 @@ border-bottom: 2px solid #f5f2f2;
 const Container = styled(ContainerItem)`
 border-bottom: none;`
 
-
-
-
-
+const MovieTitle = styled.h4`
+font-weight: lighter;
+text-align: left;
+`
 
 
 const ItemList = ({ img, title }) => {
@@ -40,10 +40,11 @@ const ItemList = ({ img, title }) => {
 
             <Container className={classes.root}>
                 <Avatar alt="Remy Sharp" src={`https://image.tmdb.org/t/p/w500/${img}`} />
-            </Container>
 
-            <Container>
-                {title}
+                <MovieTitle>
+                    {title}
+                </MovieTitle>
+
             </Container>
 
             <Container>
