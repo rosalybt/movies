@@ -4,6 +4,7 @@ import Home from './components/Home';
 import NewMovies from './components/NewMovies';
 import Populars from './components/Populars';
 import Search from './components/Search';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -11,11 +12,15 @@ function App() {
       <BrowserRouter>
         <Nav />
         <Switch>
-          <Route exact path="/home" component={Home} />
           <Route exact path="/new-movies" component={NewMovies} />
           <Route exact path="/populars" component={Populars} />
           <Route exact path="/search" component={Search} />
+          <Route exact path="/" component={Home} />
         </Switch>
+
+
+
+        <Footer />
       </BrowserRouter>
 
     </div>
