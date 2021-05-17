@@ -36,8 +36,8 @@ const Home = () => {
         <>
 
             <ContainerMovieList>
-                <MovieList array={popularMovies} listName='Peliculas Populares' />
-                <MovieList array={topRated} listName='Peliculas Mejor Puntuadas' />
+                <MovieList movies={popularMovies} listName='Peliculas Populares' />
+                <MovieList movies={topRated} listName='Peliculas Mejor Puntuadas' />
             </ContainerMovieList>
 
             <Pagination />

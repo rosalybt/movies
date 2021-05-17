@@ -27,7 +27,8 @@ overflow-y: scroll
 `
 
 
-const MovieList = ({ array, listName }) => {
+const MovieList = ({ movies, listName }) => {
+
     return (
         <ContainerMovieList>
             <ContainerTitle>
@@ -37,9 +38,10 @@ const MovieList = ({ array, listName }) => {
             </ContainerTitle>
             <Container>
                 <List>
-                    {array.map(movie => {
+                    {movies.map(movie => {
+
                         return (
-                            <li>
+                            <li key={movie.id}>
                                 <Item
                                     img={movie.backdrop_path}
                                     title={movie.title}
