@@ -1,18 +1,16 @@
 import Item from './ItemList'
 import styled from 'styled-components'
 
-
+//STYLES
 const List = styled.ul`
 list-style-type: none;
 `
-
 const ContainerMovieList = styled.div`
 display: flex;
 flex-direction: column;
 max-width:500px;
 height: 550px
 `
-
 const ContainerTitle = styled.div`
 background-color: black;
 height: min-content;
@@ -21,12 +19,11 @@ const Title = styled.h2`
 color: white;
 text-align: center;
 `
-
 const Container = styled.div`
 overflow-y: scroll
 `
 
-
+//COMPONENT
 const MovieList = ({ movies, listName }) => {
 
     return (
