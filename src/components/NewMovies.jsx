@@ -8,10 +8,8 @@ font-weight: 500;
 `
 const ContainerTitle = styled.div`
 text-align: center;
-padding: 30px;
-margin-bottom: 30px
 `
-
+// COMPONENT
 const NewMovies = () => {
     return (
         <>
