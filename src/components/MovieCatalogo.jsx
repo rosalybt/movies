@@ -13,6 +13,7 @@ const MovieCatalog = (props) => {
     return (
         <Container>
             {
+                <Card />
                 /* props.map(movie => < Card />) */
 
             }
