@@ -9,6 +9,7 @@ font-weight: 500;
 const ContainerTitle = styled.div`
 text-align: center;
 `
+
 // COMPONENT
 const Popular = () => {
     return (
