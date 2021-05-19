@@ -12,10 +12,10 @@ function App() {
       <BrowserRouter>
         <Nav />
         <Switch>
+          <Route exact path="/" component={Home} />
           <Route path="/new-movies" component={NewMovies} />
           <Route path="/populars" component={Populars} />
           <Route path="/search" component={Search} />
-          <Route exact path="/" component={Home} />
         </Switch>
 
         <Footer />

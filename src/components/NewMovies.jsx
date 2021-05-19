@@ -1,7 +1,19 @@
+import styled from 'styled-components'
+import MovieCatalog from './MovieCatalogo'
+
+const Title = styled.h2`
+font-weight: 400;
+`
+
 const NewMovies = () => {
     return (
         <>
-            <p>ultimos lanzamientos</p>
+            <Title>ultimos lanzamientos</Title>
+            <div>
+
+            </div>
+
+
         </>
     )
 }

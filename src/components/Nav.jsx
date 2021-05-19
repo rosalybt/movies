@@ -57,10 +57,10 @@ const Nav = () => {
             <Image src={Logo} alt="logo" />
 
             <List>
-                <LinkNuevo to="/" activeClassName='active'>
+                <LinkNuevo exact to="/" activeClassName='active'>
                     <Item>
                         Home
-                        </Item>
+                    </Item>
                 </LinkNuevo>
 
                 <LinkNuevo to="/new-movies" activeClassName='active'>
