@@ -44,7 +44,7 @@ const Item = ({ item }) => {
 //COMPONENT
 const Caurosel = ({ movieList }) => {
 
-    let movies = movieList.map((movie) => {
+    let movies = movieList.map(movie => {
         return {
             name: movie.title,
             description: movie.overview,
