@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import MoreInfo from './MoreInfoMovie'
 import MovieCatalog from './MovieCatalogo'
 import Pagination from './Pagination'
 import SearchBar from './SearchBar'
@@ -19,14 +20,18 @@ margin-bottom:20px;
 
 const Search = () => {
     return (
-        <Container>
-            <ContainerSearchBar>
-                <SearchBar />
-            </ContainerSearchBar>
+        // <Container>
+        //     <ContainerSearchBar>
+        //         <SearchBar />
+        //     </ContainerSearchBar>
 
-            <MovieCatalog />
-            <Pagination />
+        //     <MovieCatalog />
+        //     <Pagination />
+        // </Container>
+        <Container>
+            <MoreInfo />
         </Container>
+
     )
 }
 
