@@ -4,7 +4,6 @@ import SocialMediaBox from "./SocialMediaBox";
 
 const Container = styled.div`
   display: flex;
-
 flex-direction: ${(props) => props.flexDirection || "row"};
 padding: ${(props) => props.padding || 0};
 width: ${(props) => props.width || "100%"};

@@ -5,6 +5,8 @@ import ButtonSimple from "./Button";
 import NavBarInfo from "./NavInfo";
 import InfoBox from "./InfoBox";
 import Cast from "./Cast";
+import SimilarMovies from './Similars'
+import Trailer from "./Trailer";
 
 
 const ContainerMoreInfo = styled.div`
@@ -34,8 +36,8 @@ const MoreInfo = ({ id }) => {
                 <Switch>
                     <Route exact path="/info" component={InfoBox} />
                     <Route path="/cast" component={Cast} />
-                    <Route path="/trailer" component={InfoBox} />
-                    <Route path="/similars" component={InfoBox} />
+                    <Route path="/trailer" component={Trailer} />
+                    <Route path="/similars" component={SimilarMovies} />
                 </Switch>
 
 
