@@ -6,16 +6,16 @@ import SearchBar from './SearchBar'
 
 // STYLES
 const Container = styled.div`
-display: flex;
+/* display: flex;
 flex-direction: column;
-justify-content: center;
-padding: 30px;
+justify-content: center; */
+/* padding: 30px; */
 `
 
 const ContainerSearchBar = styled(Container)`
-flex-direction: row;
+/* flex-direction: row;
 padding: 0;
-margin-bottom:20px;
+margin-bottom:20px; */
 `
 
 const Search = () => {
@@ -28,9 +28,12 @@ const Search = () => {
         //     <MovieCatalog />
         //     <Pagination />
         // </Container>
-        <Container>
+        // <Container>
+        <>
             <MoreInfo />
-        </Container>
+        </>
+
+
 
     )
 }

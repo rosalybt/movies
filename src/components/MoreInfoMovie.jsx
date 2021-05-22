@@ -1,59 +1,50 @@
-import styled from 'styled-components'
-import PlayCircleOutlineIcon from '@material-ui/icons/PlayCircleOutline';
+import styled from "styled-components";
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import PlayCircleOutlineIcon from "@material-ui/icons/PlayCircleOutline";
+import ButtonSimple from "./Button";
+import NavBarInfo from "./NavInfo";
+import InfoBox from "./InfoBox";
 
 
-const ContainerBox = styled.div`
-position: ${props => props.position || "static"};
-background: url(${props => props.urlImg || "none"}) no-repeat  ;
-`
-const InfoBox = styled.div`
-display: flex;
+const ContainerMoreInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+`;
 
-`
-const Container = styled(InfoBox)`
-flex-direction:${props => props.position || "inherit"} ;
-`
-
+const Container = styled(ContainerMoreInfo)`
+flex-direction: ${(props) => props.flexDirection || "row"};
+padding: ${(props) => props.padding || 0};
+width: ${(props) => props.width || "100%"};
+justify-content: ${(props) => props.justifyContent || "Inherited"} ;
+`;
 
 const MoreInfo = ({ id }) => {
     return (
-        <ContainerBox urlImg>
-            <InfoBox>
-                <Container>
-                    <img src="" alt="" />
-                </Container>
+        <ContainerMoreInfo >
 
-                <Container>
-                    <Container>
-                        <Container>
-                            <h2>Titulo</h2> <span>anio</span>
-                        </Container>
-                        <Container>
-                            <PlayCircleOutlineIcon />
-                            <span>Ver trailer</span>
-                        </Container>
-                    </Container>
+            <Container height="90vh" width="fit-content">
+                <img src="kk" alt="postter" />
+            </Container>
 
-                    <Container>
-                        <h3>subtitulo</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur
-                        adipisicing elit. Quam culpa, pariatur, atq
-                        ue quaerat qui esse nam quia repellat aliquam,
-                        velit possimus soluta corrupti impedit deserunt aut
-                    necessitatibus quasi voluptatum nihil.</p>
+            <BrowserRouter>
+                <NavBarInfo />
+                <Switch>
+                    <Route exact path="/info" component={InfoBox} />
+                    <Route path="/cast" component={InfoBox} />
+                    <Route path="/trailer" component={InfoBox} />
+                    <Route path="/similars" component={InfoBox} />
+                </Switch>
 
-                        <h3>subtitulo</h3>
-                        <ul> lista
-                        <li>
-                                item
-                        </li>
-                        </ul>
 
-                    </Container>
-                </Container>
-            </InfoBox>
-        </ContainerBox>
-    )
-}
+            </BrowserRouter>
 
-export default MoreInfo
+
+
+
+
+        </ContainerMoreInfo >
+    );
+};
+
+export default MoreInfo;
