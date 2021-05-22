@@ -7,7 +7,7 @@ background-color: black;
 color:white;
 display: flex;
 flex-direction: row;
-justify-content: flex-start;
+justify-content: center;
 padding: 0 30px 0 30px;
 `;
 
@@ -19,18 +19,15 @@ margin:0;
 `;
 
 const Item = styled.li`
-padding: 10px;
+padding: 5px 20px;
 box-sizing: border-box;
 display:flex;
 align-items: center;
+font-size: x-large;
 height: 100%;
 
 &:hover{
-    /* text-decoration: underline;
-    border-bottom:1px solid black;
-    padding-bottom:2px; */
-    border-bottom: 2px solid red; 
- /* padding-bottom: 5px; */
+    border-bottom: 3px solid red; 
 }
 `
 
@@ -40,9 +37,7 @@ margin: 0;
 color: white;
 
 &.active{
-    /* border-bottom: 2px solid red; */
-    border-bottom: 2px solid red; 
-/* padding-bottom: 5px; */
+    border-bottom: 3px solid red; 
 }
 
 `

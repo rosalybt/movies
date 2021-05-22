@@ -12,7 +12,6 @@ justify-content: ${(props) => props.justifyContent || "Inherited"} ;
 `;
 
 const ContainerInfoBox = styled.section`
-
 display: flex;
 padding: 25px 90px;
 justify-content: ${(props) => props.justifyContent || "Inherited"} ;

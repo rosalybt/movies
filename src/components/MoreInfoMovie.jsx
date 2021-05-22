@@ -4,11 +4,13 @@ import PlayCircleOutlineIcon from "@material-ui/icons/PlayCircleOutline";
 import ButtonSimple from "./Button";
 import NavBarInfo from "./NavInfo";
 import InfoBox from "./InfoBox";
+import Cast from "./Cast";
 
 
 const ContainerMoreInfo = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
   padding: 0;
 `;
 
@@ -31,17 +33,13 @@ const MoreInfo = ({ id }) => {
                 <NavBarInfo />
                 <Switch>
                     <Route exact path="/info" component={InfoBox} />
-                    <Route path="/cast" component={InfoBox} />
+                    <Route path="/cast" component={Cast} />
                     <Route path="/trailer" component={InfoBox} />
                     <Route path="/similars" component={InfoBox} />
                 </Switch>
 
 
             </BrowserRouter>
-
-
-
-
 
         </ContainerMoreInfo >
     );
