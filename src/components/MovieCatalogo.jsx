@@ -4,7 +4,7 @@ import Card from './Card'
 const Container = styled.div`
 display: flex;
 justify-content: space-evenly;
-padding: 20px
+padding: 20px;
 `
 
 
