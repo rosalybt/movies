@@ -1,15 +1,17 @@
 import React from 'react';
 import styled from 'styled-components'
-import { makeStyles } from '@material-ui/core/styles';
-import Pagination from '@material-ui/lab/Pagination';
-
-const useStyles = makeStyles((theme) => ({
-    root: {
-        '& > *': {
-            marginTop: theme.spacing(2),
-        },
-    },
-}));
+// import Pagination from '@material-ui/lab/Pagination';
+// import '@zendeskgarden/react-pagination/dist/styles.css';
+import { Pagination } from '@zendeskgarden/react-pagination';
+import { ThemeProvider } from '@zendeskgarden/react-theming';
+import { useState } from 'react';
+// const useStyles = makeStyles((theme) => ({
+//     root: {
+//         '& > *': {
+//             marginTop: theme.spacing(2),
+//         },
+//     },
+// }));
 
 const Container = styled.div`
 display: flex;
@@ -18,11 +20,18 @@ margin-top: 20px
 `
 
 const PaginationRounded = () => {
-    const classes = useStyles();
+    const [initialState, setTinitialState] = useState({
+        currentPage: 1,
+    })
 
     return (
-        <Container className={classes.root}>
-            <Pagination count={10} variant="outlined" shape="rounded" />
+        <Container >
+            <ThemeProvider>
+                <Pagination
+                    totalPages={10}
+                    currentPage={initialState.currentPage}
+                    onChange={currentPage => setTinitialState({ currentPage })} />
+            </ThemeProvider>
         </Container>
     );
 }

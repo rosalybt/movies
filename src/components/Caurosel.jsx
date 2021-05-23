@@ -1,9 +1,6 @@
 import styled from 'styled-components'
 import Slider from 'react-styled-carousel';
 
-
-
-
 //STYLES
 const MoreInfoBox = styled.div`
 position: absolute;
@@ -32,12 +29,14 @@ const BASE_URL_IMG = 'https://image.tmdb.org/t/p/original/'
 const Item = ({ item }) => {
 
     return (
+
         <Container urlImg={`${BASE_URL_IMG + item.img}`} >
             <MoreInfoBox>
                 <Title>{item.name}</Title>
                 <p>{item.description}</p>
             </MoreInfoBox>
         </Container >
+
     )
 }
 
@@ -54,19 +53,26 @@ const Caurosel = ({ movieList }) => {
 
     return (
 
-
-        <Slider
+        < Slider
             cardsToShow={1}
-            autoSlide={3000}
-            showArrows={false}
-            margin="0px"
+            autoSlide
+            showArrows
             padding="0px"
         >
+            {/* {solo me toma los desliza los slides si estan de esta manera,
+             o sea componoentes tras componente } */}
 
-            {movies.map((movie, i) => <Item key={i} item={movie} />)}
-        </Slider>
+            <Item item={movies[0]} />
+            <Item item={movies[1]} />
+            <Item item={movies[2]} />
+            <Item item={movies[3]} />
+            <Item item={movies[4]} />
 
+            {/* {pero si lo tengo es un array no se desliza automaticamente,
+                 solo si le doy click a los botones(dots)} */}
 
+            {/* {  movies.map((movie, i) => <Item key={i} item={movie} />)} */}
+        </Slider >
 
     )
 }

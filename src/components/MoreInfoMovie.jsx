@@ -1,7 +1,5 @@
 import styled from "styled-components";
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
-import PlayCircleOutlineIcon from "@material-ui/icons/PlayCircleOutline";
-import ButtonSimple from "./Button";
 import NavBarInfo from "./NavInfo";
 import InfoBox from "./InfoBox";
 import Cast from "./Cast";
