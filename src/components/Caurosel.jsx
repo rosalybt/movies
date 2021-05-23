@@ -1,6 +1,8 @@
 import styled from 'styled-components'
-import Carousel from 'react-material-ui-carousel'
-import { Paper } from '@material-ui/core'
+import Slider from 'react-styled-carousel';
+
+
+
 
 //STYLES
 const MoreInfoBox = styled.div`
@@ -8,11 +10,11 @@ position: absolute;
 background: rgba(0,0,0,.3);
 color: white;
 text-align: center;
-width: 65%;
+width: 50%;
 padding: 1em;
 bottom: 25px;
 `
-const Container = styled(Paper)`
+const Container = styled.div`
 position: relative;
 display: flex;
 justify-content: center;
@@ -20,8 +22,6 @@ height: 60vh;
 background: url(${props => props.urlImg || "none"}) no-repeat  ;
 background-size: cover;
 `
-const CaouroselSimple = styled(Carousel)`
-margin-bottom: 3em;`
 
 const Title = styled.h2`
 font-weight: bolder;
@@ -53,9 +53,21 @@ const Caurosel = ({ movieList }) => {
     })
 
     return (
-        <CaouroselSimple >
-            { movies.map((movie, i) => <Item key={i} item={movie} />)}
-        </CaouroselSimple>
+
+
+        <Slider
+            cardsToShow={1}
+            autoSlide={3000}
+            showArrows={false}
+            margin="0px"
+            padding="0px"
+        >
+
+            {movies.map((movie, i) => <Item key={i} item={movie} />)}
+        </Slider>
+
+
+
     )
 }
 

@@ -13,7 +13,7 @@ const Trailer = ({ title }) => {
             <VideoFrame title={title}
                 width="70%"
                 height="400"
-                src="https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=1&mute=1" />
+                src="https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=1&mute=0" />
         </Container>
     )
 }
