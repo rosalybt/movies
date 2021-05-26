@@ -1,8 +1,7 @@
-import { useState } from 'react'
-import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
+import styled from 'styled-components'
 import Pagination from './Pagination'
 import MovieList from './MovieList'
-import styled from 'styled-components'
 import Carousel from './Caurosel'
 
 
@@ -46,8 +45,6 @@ const Home = () => {
                 <MovieList movies={popularMovies} listName='Peliculas Populares' />
                 <MovieList movies={topRated} listName='Peliculas Mejor Puntuadas' />
             </ContainerMovieList>
-
-            <Pagination />
         </>
     )
 }

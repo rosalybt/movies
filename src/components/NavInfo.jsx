@@ -31,7 +31,7 @@ height: 100%;
 }
 `
 
-const LinkNuevo = styled(NavLink)`
+const Link = styled(NavLink)`
 text-decoration: none;
 margin: 0;
 color: white;
@@ -48,29 +48,29 @@ const NavBarInfo = () => {
     return (
         <NavBar>
             <List>
-                <LinkNuevo exact to="/info" activeClassName='active'>
+                <Link exact to="/info" activeClassName='active'>
                     <Item>
                         INFO
                     </Item>
-                </LinkNuevo>
+                </Link>
 
-                <LinkNuevo to="/cast" activeClassName='active'>
+                <Link to="/cast" activeClassName='active'>
                     <Item>
                         REPARTO
                     </Item>
-                </LinkNuevo>
+                </Link>
 
-                <LinkNuevo to="/trailer" activeClassName='active'>
+                <Link to="/trailer" activeClassName='active'>
                     <Item>
                         TRAILER
                     </Item>
-                </LinkNuevo>
+                </Link>
 
-                <LinkNuevo to="/similars" activeClassName='active'>
+                <Link to="/similars" activeClassName='active'>
                     <Item >
                         SIMILARES
                     </Item>
-                </LinkNuevo>
+                </Link>
             </List>
 
         </NavBar >

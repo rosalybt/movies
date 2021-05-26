@@ -6,20 +6,20 @@ import Cast from "./Cast";
 import SimilarMovies from './Similars'
 import Trailer from "./Trailer";
 
-
+// STYLES
 const ContainerMoreInfo = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 0;
-`;
-
+`
 const Container = styled(ContainerMoreInfo)`
 flex-direction: ${(props) => props.flexDirection || "row"};
 padding: ${(props) => props.padding || 0};
 width: ${(props) => props.width || "100%"};
 justify-content: ${(props) => props.justifyContent || "Inherited"} ;
-`;
+`
+// COMPONENT
 
 const MoreInfo = ({ id }) => {
     return (

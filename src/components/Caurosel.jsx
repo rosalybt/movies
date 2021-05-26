@@ -1,5 +1,8 @@
+import React from 'react-dom'
+
 import styled from 'styled-components'
 import Slider from 'react-styled-carousel';
+import ButtonSimple from './Button'
 
 //STYLES
 const MoreInfoBox = styled.div`
@@ -22,9 +25,11 @@ background-size: cover;
 
 const Title = styled.h2`
 font-weight: bolder;
+
 `
 //LOGIC
 const BASE_URL_IMG = 'https://image.tmdb.org/t/p/original/'
+
 
 const Item = ({ item }) => {
 
@@ -34,6 +39,13 @@ const Item = ({ item }) => {
             <MoreInfoBox>
                 <Title>{item.name}</Title>
                 <p>{item.description}</p>
+                <ButtonSimple
+                    content="Ver mas... "
+                    bgcolor="#1883ba"
+                    color="#fff"
+                    radius="5px"
+                    padding="10px 15px"
+                />
             </MoreInfoBox>
         </Container >
 
@@ -56,22 +68,23 @@ const Caurosel = ({ movieList }) => {
         < Slider
             cardsToShow={1}
             autoSlide
-            showArrows
+            // infinite
             padding="0px"
         >
             {/* {solo me toma los desliza los slides si estan de esta manera,
              o sea componoentes tras componente } */}
 
-            <Item item={movies[0]} />
-            <Item item={movies[1]} />
-            <Item item={movies[2]} />
-            <Item item={movies[3]} />
-            <Item item={movies[4]} />
+            {movies.length && <Item key={1} item={movies[0]} />}
+            {movies.length && <Item key={2} item={movies[1]} />}
+            {movies.length && <Item key={3} item={movies[2]} />}
+            {movies.length && <Item key={4} item={movies[3]} />}
+            {movies.length && <Item key={5} item={movies[4]} />}
+
 
             {/* {pero si lo tengo es un array no se desliza automaticamente,
                  solo si le doy click a los botones(dots)} */}
 
-            {/* {  movies.map((movie, i) => <Item key={i} item={movie} />)} */}
+            {/* {  movies.map((movie, i) => <div> <Item key={i} item={movie} /></div>)} */}
         </Slider >
 
     )
