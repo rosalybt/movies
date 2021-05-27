@@ -25,23 +25,16 @@ box-sizing: border-box;
 display:flex;
 align-items: center;
 height: 100%;
-
-&:hover{
-    background-color: red
-}
 `
-
-const LinkNuevo = styled(NavLink)`
+const Link = styled(NavLink)`
 text-decoration: none;
 margin: 0;
 color: white;
 
 &.active{
-    background-color:red
-}
+    background-color:red}
 
 `
-
 const Image = styled.img`
 width:90px ;
 `;
@@ -57,29 +50,29 @@ const Nav = () => {
             <Image src={Logo} alt="logo" />
 
             <List>
-                <LinkNuevo exact to="/" activeClassName='active'>
+                <Link exact to="/" activeClassName='active'>
                     <Item>
                         Home
                     </Item>
-                </LinkNuevo>
+                </Link>
 
-                <LinkNuevo to="/new-movies" activeClassName='active'>
+                <Link to="/new-movies" activeClassName='active'>
                     <Item>
                         Ultimos Lanzamientos
                     </Item>
-                </LinkNuevo>
+                </Link>
 
-                <LinkNuevo to="/populars" activeClassName='active'>
+                <Link to="/populars" activeClassName='active'>
                     <Item>
                         Populares
                     </Item>
-                </LinkNuevo>
+                </Link>
 
-                <LinkNuevo to="/search" activeClassName='active'>
+                <Link to="/search" activeClassName='active'>
                     <Item >
                         Buscar
                     </Item>
-                </LinkNuevo>
+                </Link>
             </List>
 
         </NavBar >

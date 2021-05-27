@@ -4,11 +4,12 @@ import styled from 'styled-components'
 //STYLES
 const List = styled.ul`
 list-style-type: none;
+padding: 0
 `
 const ContainerMovieList = styled.div`
 display: flex;
 flex-direction: column;
-max-width:500px;
+max-width:425px;
 height: 550px
 `
 const ContainerTitle = styled.div`
@@ -20,7 +21,10 @@ color: white;
 text-align: center;
 `
 const Container = styled.div`
-overflow-y: scroll
+overflow-y: scroll;
+overflow-x: hidden;
+border: 1px solid #e8e8e8;
+
 `
 
 //COMPONENT
