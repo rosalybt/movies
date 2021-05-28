@@ -44,6 +44,7 @@ const MovieList = ({ movies, listName }) => {
                         return (
                             <li key={movie.id}>
                                 <Item
+                                    id={movie.id}
                                     img={movie.backdrop_path}
                                     title={movie.title}
                                 />

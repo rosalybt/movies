@@ -1,6 +1,9 @@
 import styled from "styled-components";
 import Rating from "./Rating";
 import SocialMediaBox from "./SocialMediaBox";
+import UseFetch from '../hooks/useFetch'
+import { useParams } from 'react-router-dom'
+import { BASE_URL_IMG } from '../utils/Variables'
 
 const Container = styled.div`
   display: flex;
@@ -20,17 +23,20 @@ color: white;
 
 
 const InfoBox = () => {
+    let { id } = useParams();
+    const movie = UseFetch(id)
+
     return (
         <ContainerInfoBox padding="30px" width="80%" justifyContent="center">
 
             <Container width="20%">
-                <img src="kk" alt="img=pe" />
+                <img src={`${BASE_URL_IMG}${movie.backdrop_path}`} alt="img=pe" />
             </Container>
 
             <Container width="30%" flexDirection="column">
                 <Container >
                     <Container >
-                        <h2>Titulo</h2> <span>anio</span>
+                        <h2>{movie.title}</h2> <span>anio</span>
                     </Container>
 
                 </Container>

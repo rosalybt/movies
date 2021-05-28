@@ -1,10 +1,7 @@
 import React from 'react';
-
-
 import styled from 'styled-components'
 
-
-
+// STYLES
 const Button = styled.button`
   text-decoration: none;
     padding: ${props => props.padding};
@@ -21,8 +18,10 @@ const Button = styled.button`
     background-color: ${props => props.color};
   }
 `
-const ButtonSimple = ({ color, size, radius, content, icon, bgcolor, padding }) => {
 
+
+// COMPONENT
+const ButtonSimple = ({ color, size, radius, content, icon, bgcolor, padding }) => {
 
   return (
 

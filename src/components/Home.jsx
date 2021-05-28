@@ -5,7 +5,8 @@ import UseFetch from './../hooks/useFetch'
 import {
     URL_POPULAR_MOVIES,
     URL_TOP_RATING_MOVIES,
-    URL_NOW_PLAYING
+    URL_NOW_PLAYING,
+    createUrl
 } from '../utils/Variables'
 
 const ContainerMovieList = styled.div`
@@ -22,10 +23,11 @@ justify-content: center;
 background-color: ${props => props.theme.colors.tertiary};
 `
 
+
 const Home = () => {
-    const popularMovies = UseFetch(URL_POPULAR_MOVIES)
-    const topRated = UseFetch(URL_TOP_RATING_MOVIES)
-    const nowPlaying = UseFetch(URL_NOW_PLAYING)
+    const popularMovies = UseFetch('popular')
+    const topRated = UseFetch('top_rated')
+    const nowPlaying = UseFetch('upcoming')
 
     return (
         <Container>

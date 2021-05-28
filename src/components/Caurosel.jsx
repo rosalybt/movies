@@ -1,8 +1,10 @@
 import React from 'react-dom'
-
+import { Link } from 'react-router-dom';
 import styled from 'styled-components'
 import Slider from 'react-styled-carousel';
 import ButtonSimple from './Button'
+import { BASE_URL_IMG } from '../utils/Variables'
+
 
 //STYLES
 const MoreInfoBox = styled.div`
@@ -34,7 +36,7 @@ font-weight: bolder;
 
 `
 //LOGIC
-const BASE_URL_IMG = 'https://image.tmdb.org/t/p/original/'
+
 
 
 const Item = ({ item }) => {
@@ -45,13 +47,15 @@ const Item = ({ item }) => {
             <MoreInfoBox>
                 <Title>{item.name}</Title>
                 <p>{item.description}</p>
-                <Button
-                    content="Ver mas... "
-                    bgcolor="#1883ba"
-                    color="#fff"
-                    radius="5px"
-                    padding="10px 15px"
-                />
+                <Link exact to={`/movies/${item.id}`}>
+                    <Button
+                        content="Ver mas... "
+                        bgcolor="#1883ba"
+                        color="#fff"
+                        radius="5px"
+                        padding="10px 15px"
+                    />
+                </Link>
             </MoreInfoBox>
         </Container >
 
@@ -63,6 +67,7 @@ const Caurosel = ({ movieList }) => {
 
     let movies = movieList.map(movie => {
         return {
+            id: movie.id,
             name: movie.title,
             description: movie.overview,
             img: movie.backdrop_path
