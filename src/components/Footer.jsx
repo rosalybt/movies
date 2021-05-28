@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
 const FooterBar = styled.footer`
-background-color: black;
-color: white;
-padding:20px;
+background-color: ${({ theme }) => theme.colors.primary};
+color: ${({ theme }) => theme.colors.text};
+padding: 20px;
 margin-top: 75px;
 text-align: center;
 `

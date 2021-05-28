@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import Pagination from './Pagination'
 import MovieList from './MovieList'
 import Carousel from './Caurosel'
 
@@ -10,6 +9,13 @@ display:flex;
 flex-direction: row;
 justify-content: space-evenly;
 padding: 20px 0 
+`
+
+const Container = styled.div`
+display: flex;
+flex-direction: column;
+justify-content: center;
+background-color: ${props => props.theme.colors.tertiary};
 `
 
 const Home = () => {
@@ -38,14 +44,14 @@ const Home = () => {
     }, [])
 
     return (
-        <>
+        <Container>
             <Carousel movieList={nowPlaying}></Carousel>
 
             <ContainerMovieList>
                 <MovieList movies={popularMovies} listName='Peliculas Populares' />
                 <MovieList movies={topRated} listName='Peliculas Mejor Puntuadas' />
             </ContainerMovieList>
-        </>
+        </Container>
     )
 }
 

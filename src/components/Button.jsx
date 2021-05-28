@@ -11,8 +11,8 @@ const Button = styled.button`
     cursor: pointer;
     font-weight: lighter;
     font-size: ${props => props.size};
-    color: ${props => props.color};
-    background-color: ${props => props.bgcolor || "transparent"};
+    color: ${props => props.color || props.theme.colors.text};
+    background-color: ${props => props.bgcolor || props.theme.colors.secondary};
     border:  none;
     border-radius: ${props => props.radius};
     
