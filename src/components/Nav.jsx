@@ -4,8 +4,8 @@ import { NavLink } from 'react-router-dom'
 
 
 const NavBar = styled.nav`
-background-color: black;
-color:white;
+background-color:  ${props => props.theme.colors.primary};
+color:${props => props.theme.colors.text};
 display: flex;
 flex-direction: row;
 justify-content: flex-start;
@@ -29,10 +29,10 @@ height: 100%;
 const Link = styled(NavLink)`
 text-decoration: none;
 margin: 0;
-color: white;
+color: ${props => props.theme.colors.text};
 
 &.active{
-    background-color:red}
+    background-color:${props => props.theme.colors.secondary}}
 
 `
 const Image = styled.img`

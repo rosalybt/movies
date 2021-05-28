@@ -7,12 +7,13 @@ import ButtonSimple from './Button'
 //STYLES
 const MoreInfoBox = styled.div`
 position: absolute;
-background: rgba(0,0,0,.3);
-color: white;
+background: ${({ theme }) => theme.colors.background};
+color: ${({ theme }) => theme.colors.text};
 text-align: center;
 width: 50%;
 padding: 1em;
 bottom: 25px;
+border-radius: 5px;
 `
 const Container = styled.div`
 position: relative;
@@ -21,6 +22,11 @@ justify-content: center;
 height: 60vh;
 background: url(${props => props.urlImg || "none"}) no-repeat  ;
 background-size: cover;
+`
+
+const Button = styled(ButtonSimple)`
+background-color: ${({ theme }) => theme.colors.secondary};
+color:${({ theme }) => theme.colors.text} ;
 `
 
 const Title = styled.h2`
@@ -39,7 +45,7 @@ const Item = ({ item }) => {
             <MoreInfoBox>
                 <Title>{item.name}</Title>
                 <p>{item.description}</p>
-                <ButtonSimple
+                <Button
                     content="Ver mas... "
                     bgcolor="#1883ba"
                     color="#fff"

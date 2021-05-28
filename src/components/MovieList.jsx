@@ -1,11 +1,11 @@
-import Item from './ItemList'
+import Item from './itemList'
 import styled from 'styled-components'
 
 //STYLES
 const List = styled.ul`
 list-style-type: none;
-padding: 0
 `
+
 const ContainerMovieList = styled.div`
 display: flex;
 flex-direction: column;
@@ -13,18 +13,18 @@ max-width:425px;
 height: 550px
 `
 const ContainerTitle = styled.div`
-background-color: black;
+background-color: ${props => props.theme.colors.primary};
 height: min-content;
 `
 const Title = styled.h2`
-color: white;
+color: ${props => props.theme.colors.text};
 text-align: center;
+margin:  ${({ theme }) => theme.margin.medium} 0
 `
 const Container = styled.div`
 overflow-y: scroll;
 overflow-x: hidden;
 border: 1px solid #e8e8e8;
-
 `
 
 //COMPONENT
