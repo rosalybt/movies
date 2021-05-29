@@ -1,5 +1,5 @@
 import React from 'react-dom'
-import { Link } from 'react-router-dom';
+import { Link, useRouteMatch } from 'react-router-dom';
 import styled from 'styled-components'
 import Slider from 'react-styled-carousel';
 import ButtonSimple from './Button'
@@ -47,7 +47,7 @@ const Item = ({ item }) => {
             <MoreInfoBox>
                 <Title>{item.name}</Title>
                 <p>{item.description}</p>
-                <Link exact to={`/movies/${item.id}`}>
+                <Link to={`/movie/${item.id}/info`}>
                     <Button
                         content="Ver mas... "
                         bgcolor="#1883ba"

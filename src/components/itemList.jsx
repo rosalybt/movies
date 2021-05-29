@@ -51,7 +51,7 @@ const ItemList = ({ id, img, title }) => {
             </Container>
 
             <Container>
-                <Link exact to={`/movies/${id}`}>
+                <Link to={`/movie/${id}/info`}>
                     <Button
                         content={<ChevronRightIcon />}
                         radius="50%"

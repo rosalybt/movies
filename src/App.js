@@ -7,7 +7,8 @@ import Populars from './components/Populars';
 import Search from './components/Search';
 import Footer from './components/Footer';
 import { theme } from './styles/theme';
-import InfoBox from './components/InfoBox';
+
+import MoreInfo from './components/MoreInfoMovie';
 
 const GlobalStyle = createGlobalStyle`
 
@@ -38,7 +39,7 @@ function App() {
             <Route path="/new-movies" component={NewMovies} />
             <Route path="/populars" component={Populars} />
             <Route path="/search" component={Search} />
-            <Route path="/movies/:id" component={InfoBox} />
+            <Route path="/movie/:id/:section" component={MoreInfo} />
           </Switch>
 
           <Footer />
