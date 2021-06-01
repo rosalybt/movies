@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { NavLink } from 'react-router-dom'
+import { NavLink, useParams, useHistory, useLocation, useRouteMatch, } from 'react-router-dom'
 
 
 const NavBar = styled.nav`
@@ -42,37 +42,34 @@ color: white;
 
 `
 
-
-
-const NavBarInfo = () => {
+const NavBarInfo = ({ movieID }) => {
     return (
         <NavBar>
             <List>
-                <Link exact to="/info" activeClassName='active'>
+                <Link to={`/movie/${movieID}/info`} activeClassName='active'>
                     <Item>
                         INFO
                     </Item>
                 </Link>
 
-                <Link to="/cast" activeClassName='active'>
+                <Link to={`/movie/${movieID}/cast`} activeClassName='active'>
                     <Item>
                         REPARTO
                     </Item>
                 </Link>
 
-                <Link to="/trailer" activeClassName='active'>
+                <Link to={`/movie/${movieID}/trailer`} activeClassName='active'>
                     <Item>
                         TRAILER
                     </Item>
                 </Link>
 
-                <Link to="/similars" activeClassName='active'>
+                <Link to={`/movie/${movieID}/similars`} activeClassName='active'>
                     <Item >
                         SIMILARES
                     </Item>
                 </Link>
             </List>
-
         </NavBar >
     )
 }

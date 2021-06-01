@@ -1,14 +1,13 @@
 import React from 'react';
 import styled from 'styled-components'
 import Button from './Button';
+import { Link } from 'react-router-dom';
+import { Flex } from './Commons'
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 
 // STYLES
-const ContainerItem = styled.div`
-display: flex;
-align-items: center;
+const ContainerItem = styled(Flex)`
 padding: 0 5px;
-justify-content: space-between;
 margin: ${({ theme }) => theme.margin.small} 0;
 border-bottom: 2px solid ${({ theme }) => theme.colors.border};
 `
@@ -32,10 +31,13 @@ margin-left: 15px;
 `
 
 // COMPONENT
-const ItemList = ({ img, title }) => {
+const ItemList = ({ id, img, title }) => {
 
     return (
-        <ContainerItem>
+        <ContainerItem
+            alignItems="center"
+            justifyContent="space-between"
+        >
             <Container >
                 <Container height="40px" width="40px"  >
                     <Avatar
@@ -49,11 +51,13 @@ const ItemList = ({ img, title }) => {
             </Container>
 
             <Container>
-                <Button
-                    content={<ChevronRightIcon />}
-                    radius="50%"
-                    padding="8px 10px"
-                    aria-label="mas informacion" />
+                <Link to={`/movie/${id}/info`}>
+                    <Button
+                        content={<ChevronRightIcon />}
+                        radius="50%"
+                        padding="8px 10px"
+                        aria-label="mas informacion" />
+                </Link>
             </Container>
         </ContainerItem>
     )

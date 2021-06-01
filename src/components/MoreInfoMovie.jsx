@@ -1,10 +1,13 @@
 import styled from "styled-components";
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { BrowserRouter, Route, Switch, useParams, useRouteMatch } from 'react-router-dom'
 import NavBarInfo from "./NavInfo";
 import InfoBox from "./InfoBox";
 import Cast from "./Cast";
 import SimilarMovies from './Similars'
 import Trailer from "./Trailer";
+import UseFetch from '../hooks/useFetch'
+import { BASE_URL_IMG_ORIGINAL } from "../utils/Variables";
+
 
 // STYLES
 const ContainerMoreInfo = styled.div`
@@ -17,31 +20,38 @@ const Container = styled(ContainerMoreInfo)`
 flex-direction: ${(props) => props.flexDirection || "row"};
 padding: ${(props) => props.padding || 0};
 width: ${(props) => props.width || "100%"};
+height: ${(props) => props.height || "100%"};
 justify-content: ${(props) => props.justifyContent || "Inherited"} ;
 `
 // COMPONENT
 
-const MoreInfo = ({ id }) => {
+const MoreInfo = () => {
+    let { id } = useParams()
+    const { backdrop_path } = UseFetch(id)
+
     return (
+
         <ContainerMoreInfo >
 
-            <Container height="90vh" width="fit-content">
-                <img src="kk" alt="postter" />
+            <Container height="100vh"  >
+                <img src={`${BASE_URL_IMG_ORIGINAL}${backdrop_path}`} alt="postter" />
             </Container>
-
             <BrowserRouter>
-                <NavBarInfo />
-                <Switch>
-                    <Route exact path="/info" component={InfoBox} />
-                    <Route path="/cast" component={Cast} />
-                    <Route path="/trailer" component={Trailer} />
-                    <Route path="/similars" component={SimilarMovies} />
-                </Switch>
-
-
+                <Container flexDirection >
+                    <NavBarInfo movieID={id} />
+                    <Switch>
+                        <Route path={`/movie/${id}/info`} component={() => InfoBox(id)} />
+                        <Route path={`/movie/${id}/cast`} component={Cast} />
+                        <Route path={`/movie/${id}/trailer`} component={Trailer} />
+                        <Route path={`/movie/${id}/similar`} component={SimilarMovies} />
+                    </Switch>
+                </Container>
             </BrowserRouter>
 
+
+
         </ContainerMoreInfo >
+
     );
 };
 

@@ -1,8 +1,13 @@
-import { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import MovieList from './MovieList'
 import Carousel from './Caurosel'
-
+import UseFetch from './../hooks/useFetch'
+import {
+    URL_POPULAR_MOVIES,
+    URL_TOP_RATING_MOVIES,
+    URL_NOW_PLAYING,
+    createUrl
+} from '../utils/Variables'
 
 const ContainerMovieList = styled.div`
 display:flex;
@@ -18,30 +23,11 @@ justify-content: center;
 background-color: ${props => props.theme.colors.tertiary};
 `
 
+
 const Home = () => {
-    const [popularMovies, setPopularMovies] = useState([])
-    const [topRated, setTopRated] = useState([])
-    const [nowPlaying, setNowPlaying] = useState([])
-
-    useEffect(() => {
-        fetch(`https://api.themoviedb.org/3/movie/popular?api_key=a3c153949fde18432538e84197afdd2c&language=en-US`)
-            .then(res => res.json())
-            .then(data => setPopularMovies(data.results))
-
-    }, [])
-
-    useEffect(() => {
-        fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=a3c153949fde18432538e84197afdd2c&language=en-US`)
-            .then(res => res.json())
-            .then(data => setTopRated(data.results))
-
-    }, [])
-
-    useEffect(() => {
-        fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=a3c153949fde18432538e84197afdd2c&language=en-US`)
-            .then(res => res.json())
-            .then(data => setNowPlaying(data.results))
-    }, [])
+    const popularMovies = UseFetch('popular')
+    const topRated = UseFetch('top_rated')
+    const nowPlaying = UseFetch('upcoming')
 
     return (
         <Container>
