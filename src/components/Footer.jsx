@@ -4,7 +4,6 @@ const FooterBar = styled.footer`
 background-color: ${({ theme }) => theme.colors.primary};
 color: ${({ theme }) => theme.colors.text};
 padding: 20px;
-margin-top: 75px;
 text-align: center;
 `
 

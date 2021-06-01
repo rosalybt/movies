@@ -2,8 +2,7 @@ import styled from "styled-components";
 import Rating from "./Rating";
 import SocialMediaBox from "./SocialMediaBox";
 import UseFetch from '../hooks/useFetch'
-import { useParams } from 'react-router-dom'
-import { BASE_URL_IMG, BASE_URL_IMG_ORIGINAL } from '../utils/Variables'
+import { BASE_URL_IMG } from '../utils/Variables'
 
 const Container = styled.div`
   display: flex;
@@ -15,28 +14,29 @@ justify-content: ${(props) => props.justifyContent || "Inherited"} ;
 
 const ContainerInfoBox = styled.section`
 display: flex;
+flex-direction: row;
 padding: 25px 90px;
 justify-content: ${(props) => props.justifyContent || "Inherited"} ;
 background-color: black;
 color: white;
+
 `;
 
 
 const InfoBox = (id) => {
-
     const movie = UseFetch(id)
 
     return (
-        <ContainerInfoBox padding="30px" width="80%" justifyContent="center">
+        <ContainerInfoBox padding="30px" width="50%" justifyContent="space-evenly">
 
-            <Container width="20%">
-                <img src={`${BASE_URL_IMG}${movie.poster_path}`} alt="img=pe" />
+            <Container width="25%">
+                <img src={`${BASE_URL_IMG}${movie.poster_path}`} width="100%" alt="img=pe" />
             </Container>
 
-            <Container width="30%" flexDirection="column">
+            <Container width="25%" flexDirection="column">
                 <Container >
                     <Container >
-                        <h2>{movie.title}</h2> <span>anio</span>
+                        <h2>{movie.title}</h2> <span>{movie.release_date}</span>
                     </Container>
 
                 </Container>
@@ -46,21 +46,27 @@ const InfoBox = (id) => {
 
                     <h3>General</h3>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam
-                        culpa, pariatur, atq ue quaerat qui esse nam quia repellat
-                        aliquam, velit possimus soluta corrupti impedit deserunt aut
-                        necessitatibus quasi voluptatum nihil.
-</p>
+                        {movie.overview}
+                    </p>
 
-                    <p>Durancion:</p>
+                    <p>Durancion: {movie.runtime}</p>
 
-                    <p>Genero</p><ul>
-                        <li>item</li>
+                    <ul>
+                        <p>Genero</p>
+                        {movie.genres && movie.genres.map((genere) => <li key={genere.id}>{genere.name}</li>)}
                     </ul>
 
-                    <p>Presupuesto:</p>
-                    <p>Recuaudacion:</p>
-                    <p>Produccion:</p>
+                    <p>Presupuesto:{movie.budget}</p>
+                    <p>Recuaudacion:{movie.revenue} </p>
+
+                    <p>Produccion: </p>
+                    {
+                        movie.production_companies && movie.production_companies.map(companies => {
+                            return <span key={companies.id} >{companies.name}</span>
+                        })
+                    }
+
+
                     <SocialMediaBox />
 
                 </Container>

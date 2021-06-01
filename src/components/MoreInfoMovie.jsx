@@ -26,9 +26,8 @@ justify-content: ${(props) => props.justifyContent || "Inherited"} ;
 // COMPONENT
 
 const MoreInfo = () => {
-    let params = useParams()
-    // console.log(kk)
-    const { backdrop_path } = UseFetch(params.id)
+    let { id } = useParams()
+    const { backdrop_path } = UseFetch(id)
 
     return (
 
@@ -38,13 +37,15 @@ const MoreInfo = () => {
                 <img src={`${BASE_URL_IMG_ORIGINAL}${backdrop_path}`} alt="postter" />
             </Container>
             <BrowserRouter>
-                <NavBarInfo id={params} />
-                <Switch>
-                    <Route path={`/movie/${params.id}/info`} component={() => InfoBox(params.id)} />
-                    <Route path={`/movie/${params.id}/cast`} component={Cast} />
-                    <Route path={`/movie/${params.id}/${params.section}`} component={Trailer} />
-                    <Route path={`/movie/${params.id}/${params.section}`} component={SimilarMovies} />
-                </Switch>
+                <Container flexDirection >
+                    <NavBarInfo movieID={id} />
+                    <Switch>
+                        <Route path={`/movie/${id}/info`} component={() => InfoBox(id)} />
+                        <Route path={`/movie/${id}/cast`} component={Cast} />
+                        <Route path={`/movie/${id}/trailer`} component={Trailer} />
+                        <Route path={`/movie/${id}/similar`} component={SimilarMovies} />
+                    </Switch>
+                </Container>
             </BrowserRouter>
 
 
