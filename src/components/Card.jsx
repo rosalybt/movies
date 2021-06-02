@@ -10,7 +10,10 @@ const ContainerCard = styled(Container)`
 border: 1px solid ${({ theme }) => theme.colors.border};
 `
 const Title = styled.h3`
-font-weight: 400;
+font-weight: 700;
+font-size: x-large;
+margin :0;
+text-align: left;
 `
 
 const Card = ({ img, title }) => {

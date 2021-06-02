@@ -1,4 +1,4 @@
-import MovieCatalog from "./MovieCatalogo"
+import MovieCatalog from "./CardCatalog"
 
 
 

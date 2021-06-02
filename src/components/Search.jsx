@@ -1,4 +1,4 @@
-import MovieCatalog from './MovieCatalogo'
+import MovieCatalog from './CardCatalog'
 import Pagination from './Pagination'
 import FormSearch from './FormSearch'
 

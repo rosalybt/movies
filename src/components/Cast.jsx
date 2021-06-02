@@ -1,18 +1,34 @@
 import styled from 'styled-components'
 import CastCard from './CastCard'
+import CardCatalog from './CardCatalog'
+import useFetch from '../hooks/useFetch'
 
 
 const Container = styled.div`
+width: 100%;
 display: flex;
-justify-content: space-evenly;
-padding: 20px;
+flex-flow: row wrap;
+justify-content:center;
+align-items: flex-start;
+background-color: black;
+padding: 20px 0
 `
 
-
-const Cast = () => {
+const Cast = (id) => {
+    const casting = useFetch(`${id}/credits`)
+    console.log(casting)
     return (
         <Container>
-            <CastCard />
+
+            {casting.cast && casting.cast.map((cast) => {
+                return <CastCard
+                    key={cast.cast_id}
+                    img={cast.profile_path}
+                    originalName={cast.name}
+                    character={cast.character}
+                />
+            })}
+
         </Container >
     )
 }
