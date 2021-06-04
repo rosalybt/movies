@@ -14,7 +14,8 @@ const ContainerMoreInfo = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0;
+  padding: 15px;
+  background-color: black;
 `
 const Container = styled(ContainerMoreInfo)`
 flex-direction: ${(props) => props.flexDirection || "row"};

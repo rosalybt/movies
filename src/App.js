@@ -18,7 +18,8 @@ const GlobalStyle = createGlobalStyle`
     margin: 0
   }
   a {
-    text-decoration: none
+    text-decoration: none;
+    color: #000
   }
   body {
     font-family: "Calibri";
@@ -40,6 +41,7 @@ function App() {
             <Route path="/populars" component={Populars} />
             <Route path="/search" component={Search} />
             <Route path="/movie/:id/:section" component={MoreInfo} />
+            <Route path="/search" component={Search} />
           </Switch>
 
           <Footer />

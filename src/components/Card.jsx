@@ -6,7 +6,6 @@ import { Flex } from './Commons'
 const Container = styled(Flex)`
 width: 300px;
 height: ${props => props.height || 'auto'};
-/* padding: ${props => props.padding && '10px'}; */
 margin: ${props => props.margin || '0'};
 display: flex;
 justify-content:${props => props.justifyContent || 'center'} ;
@@ -26,6 +25,7 @@ font-weight: 500;
 width: 100%;
 font-size: x-large;
 text-align: left;
+color: ${props => props.theme.colors.text}
 `
 
 const Image = styled.img`

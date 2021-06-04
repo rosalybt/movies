@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 import MovieCard from './Card'
 
 // STYLES
@@ -11,15 +12,17 @@ padding: 20px;
 
 // COMPONENT
 const CardCatalog = ({ list }) => {
-    debugger
+
     return (
         <Container>
             {
                 list.map(movie => {
-                    return <MovieCard
-                        img={movie.poster_path}
-                        title={movie.title}
-                    />
+                    return <Link to={`/movie/${movie.id}/info`}>
+                        <MovieCard key={movie.id}
+                            img={movie.poster_path}
+                            title={movie.title}
+                        />
+                    </Link>
                 })
             }
         </Container>
