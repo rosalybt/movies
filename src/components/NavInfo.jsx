@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { NavLink, useParams, useHistory, useLocation, useRouteMatch, } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 
 const NavBar = styled.nav`
@@ -9,6 +9,7 @@ display: flex;
 flex-direction: row;
 justify-content: center;
 padding: 0 30px 0 30px;
+margin-bottom: 30px;
 `;
 
 const List = styled.ul`

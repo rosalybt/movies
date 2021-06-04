@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { BASE_URL_IMG_MEDIUM } from '../utils/Variables'
 
 
 // STYLE
@@ -35,12 +36,11 @@ text-align: left;
 `
 
 const CastCard = ({ img, originalName, character }) => {
-    const PATH = `https://image.tmdb.org/t/p/w300`;
 
     return (
         <ContainerCard >
             <Container padding="0" radius="5px" shadow="2px 2px 2px -2px rgba(0,0,0,0.8)">
-                {img ? <img src={PATH + img} alt={`foto de ${originalName}.`} /> : <img src="http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available/portrait_uncanny.jpg" alt="no foto" />}
+                {img ? <img src={BASE_URL_IMG_MEDIUM + img} alt={`foto de ${originalName}.`} /> : <img src="http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available/portrait_uncanny.jpg" alt="no foto" />}
             </Container>
 
             <Container justifyContent="flex-start" aligItems="flex-start">

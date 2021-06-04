@@ -5,19 +5,20 @@ import MovieCard from './Card'
 const Container = styled.div`
 display: flex;
 justify-content: space-evenly;
+flex-wrap: wrap;
 padding: 20px;
 `
 
 // COMPONENT
-const CardCatalog = ({ movieList }) => {
-
+const CardCatalog = ({ list }) => {
+    debugger
     return (
         <Container>
             {
-                movieList.map(item => {
+                list.map(movie => {
                     return <MovieCard
-                        img={item.img}
-                        title={item.title}
+                        img={movie.poster_path}
+                        title={movie.title}
                     />
                 })
             }

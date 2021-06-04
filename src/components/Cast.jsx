@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import CastCard from './CastCard'
-import CardCatalog from './CardCatalog'
 import useFetch from '../hooks/useFetch'
 
 

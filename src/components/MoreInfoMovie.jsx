@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { BrowserRouter, Route, Switch, useParams, useRouteMatch } from 'react-router-dom'
+import { BrowserRouter, Route, Switch, useParams } from 'react-router-dom'
 import NavBarInfo from "./NavInfo";
 import InfoBox from "./InfoBox";
 import Cast from "./Cast";
@@ -43,7 +43,7 @@ const MoreInfo = () => {
                         <Route path={`/movie/${id}/info`} component={() => InfoBox(id)} />
                         <Route path={`/movie/${id}/cast`} component={() => Cast(id)} />
                         <Route path={`/movie/${id}/trailer`} component={() => Trailer(id)} />
-                        <Route path={`/movie/${id}/similar`} component={SimilarMovies} />
+                        <Route path={`/movie/${id}/similars`} component={() => SimilarMovies(id)} />
                     </Switch>
                 </Container>
             </BrowserRouter>
