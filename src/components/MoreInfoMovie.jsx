@@ -42,7 +42,7 @@ const MoreInfo = () => {
                     <Switch>
                         <Route path={`/movie/${id}/info`} component={() => InfoBox(id)} />
                         <Route path={`/movie/${id}/cast`} component={() => Cast(id)} />
-                        <Route path={`/movie/${id}/trailer`} component={Trailer} />
+                        <Route path={`/movie/${id}/trailer`} component={() => Trailer(id)} />
                         <Route path={`/movie/${id}/similar`} component={SimilarMovies} />
                     </Switch>
                 </Container>
