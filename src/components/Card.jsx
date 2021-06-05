@@ -25,7 +25,7 @@ font-weight: 500;
 width: 100%;
 font-size: x-large;
 text-align: left;
-color: ${props => props.theme.colors.text}
+color: black
 `
 
 const Image = styled.img`
