@@ -24,7 +24,7 @@ color: white;
 
 
 const InfoBox = (id) => {
-    const movie = UseFetch(id)
+    const movie = UseFetch(id, 'movie')
 
     return (
         <ContainerInfoBox padding="30px" width="50%" justifyContent="space-evenly">

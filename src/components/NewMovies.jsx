@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import MovieCatalog from './MovieCatalogo'
+import MovieCatalog from './CardCatalog'
 import Pagination from './Pagination'
 
 // STYLES

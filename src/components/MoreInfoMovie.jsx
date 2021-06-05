@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { BrowserRouter, Route, Switch, useParams, useRouteMatch } from 'react-router-dom'
+import { BrowserRouter, Route, Switch, useParams } from 'react-router-dom'
 import NavBarInfo from "./NavInfo";
 import InfoBox from "./InfoBox";
 import Cast from "./Cast";
@@ -14,7 +14,8 @@ const ContainerMoreInfo = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0;
+  padding: 15px;
+  background-color: black;
 `
 const Container = styled(ContainerMoreInfo)`
 flex-direction: ${(props) => props.flexDirection || "row"};
@@ -27,7 +28,7 @@ justify-content: ${(props) => props.justifyContent || "Inherited"} ;
 
 const MoreInfo = () => {
     let { id } = useParams()
-    const { backdrop_path } = UseFetch(id)
+    const { backdrop_path } = UseFetch(id, 'movie')
 
     return (
 
@@ -41,9 +42,9 @@ const MoreInfo = () => {
                     <NavBarInfo movieID={id} />
                     <Switch>
                         <Route path={`/movie/${id}/info`} component={() => InfoBox(id)} />
-                        <Route path={`/movie/${id}/cast`} component={Cast} />
-                        <Route path={`/movie/${id}/trailer`} component={Trailer} />
-                        <Route path={`/movie/${id}/similar`} component={SimilarMovies} />
+                        <Route path={`/movie/${id}/cast`} component={() => Cast(id)} />
+                        <Route path={`/movie/${id}/trailer`} component={() => Trailer(id)} />
+                        <Route path={`/movie/${id}/similars`} component={() => SimilarMovies(id)} />
                     </Switch>
                 </Container>
             </BrowserRouter>

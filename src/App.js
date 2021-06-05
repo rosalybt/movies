@@ -9,6 +9,7 @@ import Footer from './components/Footer';
 import { theme } from './styles/theme';
 
 import MoreInfo from './components/MoreInfoMovie';
+import Person from './components/Person';
 
 const GlobalStyle = createGlobalStyle`
 
@@ -18,7 +19,8 @@ const GlobalStyle = createGlobalStyle`
     margin: 0
   }
   a {
-    text-decoration: none
+    text-decoration: none;
+    color: #000
   }
   body {
     font-family: "Calibri";
@@ -40,6 +42,7 @@ function App() {
             <Route path="/populars" component={Populars} />
             <Route path="/search" component={Search} />
             <Route path="/movie/:id/:section" component={MoreInfo} />
+            <Route path="/person/:id/:section" component={Person} />
           </Switch>
 
           <Footer />

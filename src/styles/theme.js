@@ -11,6 +11,7 @@ export const theme = {
         secondary: "#1890ff",
         tertiary: "#fafafa",
         text: "#fff",
+        textLight: "#000",
         border: "#e8e8e8",
         background: "rgba(0, 0, 0, 0.65)",
 

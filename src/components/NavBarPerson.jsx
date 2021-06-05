@@ -43,33 +43,22 @@ color: white;
 
 `
 
-const NavBarInfo = ({ movieID }) => {
+const NavBarInfo = ({ personID }) => {
     return (
         <NavBar>
             <List>
-                <Link to={`/movie/${movieID}/info`} activeClassName='active'>
+                <Link to={`/person/${personID}/info`} activeClassName='active'>
                     <Item>
-                        INFO
+                        INFORMACION
                     </Item>
                 </Link>
 
-                <Link to={`/movie/${movieID}/cast`} activeClassName='active'>
+                <Link to={`/person/${personID}/credits`} activeClassName='active'>
                     <Item>
-                        REPARTO
+                        CREDITOS
                     </Item>
                 </Link>
 
-                <Link to={`/movie/${movieID}/trailer`} activeClassName='active'>
-                    <Item>
-                        TRAILER
-                    </Item>
-                </Link>
-
-                <Link to={`/movie/${movieID}/similars`} activeClassName='active'>
-                    <Item >
-                        SIMILARES
-                    </Item>
-                </Link>
             </List>
         </NavBar >
     )
