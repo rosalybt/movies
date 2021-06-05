@@ -2,12 +2,7 @@ import styled from 'styled-components'
 import MovieList from './MovieList'
 import Carousel from './Caurosel'
 import UseFetch from './../hooks/useFetch'
-import {
-    URL_POPULAR_MOVIES,
-    URL_TOP_RATING_MOVIES,
-    URL_NOW_PLAYING,
-    createUrl
-} from '../utils/Variables'
+
 
 const ContainerMovieList = styled.div`
 display:flex;
