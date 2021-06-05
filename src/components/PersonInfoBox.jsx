@@ -7,57 +7,64 @@ import { useParams } from "react-router";
 
 const Container = styled.div`
   display: flex;
+
 flex-direction: ${(props) => props.flexDirection || "row"};
 padding: ${(props) => props.padding || 0};
+margin: ${(props) => props.margin || 0};
 width: ${(props) => props.width || "100%"};
+height: ${(props) => props.height || "100%"};
 justify-content: ${(props) => props.justifyContent || "Inherited"} ;
 `;
 
 const ContainerInfoBox = styled.section`
 display: flex;
-flex-direction: row;
+flex-wrap: wrap;
+/* flex-direction: row; */
 padding: 25px 90px;
+flex-direction: row;
 justify-content: ${(props) => props.justifyContent || "Inherited"} ;
 background-color: black;
 color: white;
 `;
 
 
+const Image = styled.img`
+height: 400px;
+width: 300px;
+`
+
+
 const PersonInfoBox = () => {
     let { id } = useParams()
-    console.log(id, 'id')
-    const person = UseFetch(`person/${id}`)
-    console.log(person)
+    const person = UseFetch(id, 'person')
 
     return (
-        <ContainerInfoBox padding="30px" width="50%" justifyContent="space-evenly">
+        <ContainerInfoBox padding="20px" justifyContent="space-around">
 
-            <Container width="25%">
-                <img src={`${BASE_URL_IMG}${person.profile_path}`} width="100%" alt="img=pe" />
+            <Container height="auto" width="25%">
+                <Image src={`${BASE_URL_IMG}${person.profile_path}`} alt={`foto de ${person.name}`} />
             </Container>
 
-            <Container width="25%" flexDirection="column">
+            <Container flexDirection="column" width="50%" >
                 <Container >
-                    <Container >
+                    <Container flexDirection="column" >
                         <h2>{person.name}</h2> <span>{person.birthday}</span>
+                        <p>{person.place_of_birth}</p>
                     </Container>
 
                 </Container>
-
-                <Container flexDirection="column">
+                <br />
+                <Container flexDirection="column" >
                     <Rating />
 
-                    <h3>Biografia</h3>
-                    <p>
-                        {person.biography}
-                    </p>
+                    {person.biography && <> <h3>Biografia</h3>  <p>{person.biography}</p></>}
 
                     <SocialMediaBox />
 
                 </Container>
             </Container>
 
-        </ContainerInfoBox>
+        </ContainerInfoBox >
     )
 }
 

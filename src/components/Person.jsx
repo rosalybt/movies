@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import NavBar from './NavBarPerson'
 import PersonInfoBox from "./PersonInfoBox";
-import { BrowserRouter, Route, Switch, useParams, useRouteMatch } from 'react-router-dom'
+import CreditsBox from './CreditsPersonBox'
+import { BrowserRouter, Route, Switch, useParams } from 'react-router-dom'
 
 const ContainerPerson = styled.div`
   display: flex;
@@ -13,14 +14,14 @@ const ContainerPerson = styled.div`
 
 const Person = () => {
     const { id } = useParams()
-    console.log(id)
+
     return (
         <ContainerPerson>
             <BrowserRouter>
-                <NavBar />
+                <NavBar personID={id} />
                 <Switch>
-                    <Route path={`/person/:id/info`} component={() => PersonInfoBox(id)} />
-                    {/* <Route path={`/person/:id/credits`} component={() => PersonInfoBox} /> */}
+                    <Route path={`/person/:id/info`} component={PersonInfoBox} />
+                    <Route path={`/person/:id/credits`} component={CreditsBox} />
                 </Switch>
             </BrowserRouter>
         </ContainerPerson>
