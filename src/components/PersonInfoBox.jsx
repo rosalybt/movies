@@ -3,6 +3,7 @@ import Rating from "./Rating";
 import SocialMediaBox from "./SocialMediaBox";
 import UseFetch from '../hooks/useFetch'
 import { BASE_URL_IMG } from '../utils/Variables'
+import { useParams } from "react-router";
 
 const Container = styled.div`
   display: flex;
@@ -19,24 +20,26 @@ padding: 25px 90px;
 justify-content: ${(props) => props.justifyContent || "Inherited"} ;
 background-color: black;
 color: white;
-
 `;
 
 
-const InfoBox = (id) => {
-    const movie = UseFetch(id, 'movie')
+const PersonInfoBox = () => {
+    let { id } = useParams()
+    console.log(id, 'id')
+    const person = UseFetch(`person/${id}`)
+    console.log(person)
 
     return (
         <ContainerInfoBox padding="30px" width="50%" justifyContent="space-evenly">
 
             <Container width="25%">
-                <img src={`${BASE_URL_IMG}${movie.poster_path}`} width="100%" alt="img=pe" />
+                <img src={`${BASE_URL_IMG}${person.profile_path}`} width="100%" alt="img=pe" />
             </Container>
 
             <Container width="25%" flexDirection="column">
                 <Container >
                     <Container >
-                        <h2>{movie.title}</h2> <span>{movie.release_date}</span>
+                        <h2>{person.name}</h2> <span>{person.birthday}</span>
                     </Container>
 
                 </Container>
@@ -44,28 +47,10 @@ const InfoBox = (id) => {
                 <Container flexDirection="column">
                     <Rating />
 
-                    <h3>General</h3>
+                    <h3>Biografia</h3>
                     <p>
-                        {movie.overview}
+                        {person.biography}
                     </p>
-
-                    <p>Durancion: {movie.runtime}</p>
-
-                    <ul>
-                        <p>Genero</p>
-                        {movie.genres && movie.genres.map((genere) => <li key={genere.id}>{genere.name}</li>)}
-                    </ul>
-
-                    <p>Presupuesto:{movie.budget}</p>
-                    <p>Recuaudacion:{movie.revenue} </p>
-
-                    <p>Produccion: </p>
-                    {
-                        movie.production_companies && movie.production_companies.map(companies => {
-                            return <span key={companies.id} >{companies.name}</span>
-                        })
-                    }
-
 
                     <SocialMediaBox />
 
@@ -76,4 +61,4 @@ const InfoBox = (id) => {
     )
 }
 
-export default InfoBox
+export default PersonInfoBox

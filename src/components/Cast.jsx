@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import CastCard from './CastCard'
 import useFetch from '../hooks/useFetch'
-
+import { Link } from 'react-router-dom'
 
 const Container = styled.div`
 width: 100%;
@@ -14,18 +14,20 @@ padding: 20px 0
 `
 
 const Cast = (id) => {
-    const casting = useFetch(`${id}/credits`)
-    console.log(casting)
+    const casting = useFetch(`${id}/credits`, 'movie')
+
     return (
         <Container>
 
             {casting.cast && casting.cast.map((cast) => {
-                return <CastCard
-                    key={cast.cast_id}
-                    img={cast.profile_path}
-                    originalName={cast.name}
-                    character={cast.character}
-                />
+                return <Link to={`/person/${cast.id}/info`}>
+                    <CastCard
+                        key={cast.id}
+                        img={cast.profile_path}
+                        originalName={cast.name}
+                        character={cast.character}
+                    />
+                </Link >
             })}
 
         </Container >

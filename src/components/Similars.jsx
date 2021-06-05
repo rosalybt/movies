@@ -5,7 +5,7 @@ import useFetch from '../hooks/useFetch'
 
 const SimilarMovies = (id) => {
     debugger
-    const similarMovies = useFetch(`${id}/similar`)
+    const similarMovies = useFetch(`${id}/similar`, 'movie')
     console.log(similarMovies)
     return (
 

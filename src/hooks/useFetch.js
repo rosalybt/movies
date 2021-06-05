@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
 import { createUrl } from '../utils/Variables'
 
-const useFetch = (param) => {
-    const URL = createUrl(param)
+const useFetch = (param, resource) => {
+    const URL = createUrl(param, resource)
     const [search, setSearch] = useState([])
 
     useEffect(() => {
