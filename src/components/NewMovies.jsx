@@ -21,7 +21,7 @@ const NewMovies = () => {
     const [{ results: movies, page, total_pages }, setMovies] = useState({})
 
     useEffect(() => {
-        fetch(createUrl('upcoming', 'movie', params.num))
+        fetch(createUrl('upcoming?', 'movie', params.num))
             .then(res => res.json())
             .then(data => setMovies(data))
     }, [params.num])

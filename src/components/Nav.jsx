@@ -70,7 +70,7 @@ const Nav = () => {
                     </Item>
                 </Link>
 
-                <Link to="/search" activeClassName='active'>
+                <Link to="/search/page/1" activeClassName='active'>
                     <Item >
                         Buscar
                     </Item>

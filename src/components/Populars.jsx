@@ -20,11 +20,11 @@ const Popular = () => {
     const [{ results: popularMovies, page, total_pages }, setMovies] = useState({})
 
     useEffect(() => {
-        fetch(createUrl('popular', 'movie', params.num))
+        fetch(createUrl('popular?', 'movie', params.num))
             .then(res => res.json())
             .then(data => setMovies(data))
     }, [params.num])
-    // const { results: popularMovies } = UseFetch('popular', 'movie')
+
     return (
         <>
             <ContainerTitle>

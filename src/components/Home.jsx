@@ -20,9 +20,9 @@ background-color: ${props => props.theme.colors.tertiary};
 
 
 const Home = () => {
-    const { results: popularMovies } = UseFetch('popular', 'movie')
-    const { results: topRated } = UseFetch('top_rated', 'movie')
-    const { results: nowPlaying } = UseFetch('upcoming', 'movie')
+    const { results: popularMovies } = UseFetch('popular?', 'movie')
+    const { results: topRated } = UseFetch('top_rated?', 'movie')
+    const { results: nowPlaying } = UseFetch('upcoming?', 'movie')
 
     return (
         <Container>
