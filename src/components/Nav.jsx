@@ -58,13 +58,13 @@ const Nav = () => {
                     </Item>
                 </Link>
 
-                <Link to={`/new-movies/page/1`} activeClassName='active'>
+                <Link to="/new-movies/page/1" activeClassName='active'>
                     <Item>
                         Ultimos Lanzamientos
                     </Item>
                 </Link>
 
-                <Link to="/populars" activeClassName='active'>
+                <Link to="/populars/page/1" activeClassName='active'>
                     <Item>
                         Populares
                     </Item>

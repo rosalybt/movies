@@ -17,3 +17,4 @@ export const cortarArray = (array) => {
 
 export const createUrl = (param, resource, page = 1) => `${URL_BASE + resource}/${param + API_KEY + QUERY_PARAMS + page}`
 
+export const getRootURL = (string) => string.replace(/[0-9]/g, '')

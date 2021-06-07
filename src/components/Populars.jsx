@@ -1,7 +1,9 @@
 import styled from 'styled-components'
 import MovieCatalog from './CardCatalog'
 import Pagination from './Pagination'
-import UseFetch from './../hooks/useFetch'
+import { useEffect, useState } from 'react'
+import { useRouteMatch } from 'react-router-dom'
+import { createUrl } from '../utils/Variables'
 
 // STYLES
 const Title = styled.h2`
@@ -14,7 +16,15 @@ margin: 30px 0;
 
 // COMPONENT
 const Popular = () => {
-    const { results: popularMovies } = UseFetch('popular', 'movie')
+    const { params } = useRouteMatch()
+    const [{ results: popularMovies, page, total_pages }, setMovies] = useState({})
+
+    useEffect(() => {
+        fetch(createUrl('popular', 'movie', params.num))
+            .then(res => res.json())
+            .then(data => setMovies(data))
+    }, [params.num])
+    // const { results: popularMovies } = UseFetch('popular', 'movie')
     return (
         <>
             <ContainerTitle>
@@ -23,7 +33,7 @@ const Popular = () => {
 
             {popularMovies && <MovieCatalog list={popularMovies} />}
 
-            <Pagination />
+            <Pagination page={page} totalPages={total_pages} />
         </>
     )
 }

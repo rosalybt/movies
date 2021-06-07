@@ -1,9 +1,9 @@
-import React from 'react';
 import styled from 'styled-components'
 import { Pagination } from '@zendeskgarden/react-pagination';
 import { ThemeProvider } from '@zendeskgarden/react-theming';
 import { useState } from 'react';
-import { Redirect, useHistory, useLocation, useParams } from 'react-router-dom'
+import { useHistory, useParams } from 'react-router-dom'
+import { getRootURL } from '../utils/Variables'
 
 // STYLES
 const Container = styled.div`
@@ -12,13 +12,11 @@ justify-content: center;
 margin-bottom: 50px
 `
 
-
 /* COMPONENT */
-const PaginationRounded = ({ page, totalPages }) => {
-    const history = useHistory()
-    const handleClick = (e) => history.push(`/new-movies/page/${e.target.textContent}`);
-
-    const [initialState, setTinitialState] = useState({ currentPage: page, })
+const PaginationRounded = ({ page = 1, totalPages = 1 }) => {
+    const { push, location } = useHistory()
+    const URL = getRootURL(location.pathname)
+    const [initialState, setTinitialState] = useState({ currentPage: parseInt(page), })
 
     return (
         <Container >
@@ -26,8 +24,8 @@ const PaginationRounded = ({ page, totalPages }) => {
                 <Pagination
                     totalPages={totalPages}
                     currentPage={initialState.currentPage}
-                    onChange={currentPage => setTinitialState({ currentPage })}
-                    onClick={handleClick}
+                    onChange={(currentPage) => setTinitialState({ currentPage })}
+                    onClick={(e) => push(`${URL}${e.target.textContent}`)}
                 />
             </ThemeProvider>
         </Container>
