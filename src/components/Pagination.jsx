@@ -3,26 +3,32 @@ import styled from 'styled-components'
 import { Pagination } from '@zendeskgarden/react-pagination';
 import { ThemeProvider } from '@zendeskgarden/react-theming';
 import { useState } from 'react';
+import { Redirect, useHistory, useLocation, useParams } from 'react-router-dom'
 
 // STYLES
 const Container = styled.div`
 display: flex;
 justify-content: center;
-margin-top: 20px
+margin-bottom: 50px
 `
+
+
 /* COMPONENT */
-const PaginationRounded = () => {
-    const [initialState, setTinitialState] = useState({
-        currentPage: 1,
-    })
+const PaginationRounded = ({ page, totalPages }) => {
+    const history = useHistory()
+    const handleClick = (e) => history.push(`/new-movies/page/${e.target.textContent}`);
+
+    const [initialState, setTinitialState] = useState({ currentPage: page, })
 
     return (
         <Container >
             <ThemeProvider>
                 <Pagination
-                    totalPages={10}
+                    totalPages={totalPages}
                     currentPage={initialState.currentPage}
-                    onChange={currentPage => setTinitialState({ currentPage })} />
+                    onChange={currentPage => setTinitialState({ currentPage })}
+                    onClick={handleClick}
+                />
             </ThemeProvider>
         </Container>
     );

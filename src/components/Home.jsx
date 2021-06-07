@@ -20,17 +20,18 @@ background-color: ${props => props.theme.colors.tertiary};
 
 
 const Home = () => {
-    const popularMovies = UseFetch('popular', 'movie')
-    const topRated = UseFetch('top_rated', 'movie')
-    const nowPlaying = UseFetch('upcoming', 'movie')
+    const { results: popularMovies } = UseFetch('popular', 'movie')
+    const { results: topRated } = UseFetch('top_rated', 'movie')
+    const { results: nowPlaying } = UseFetch('upcoming', 'movie')
 
     return (
         <Container>
-            <Carousel movieList={nowPlaying}></Carousel>
+
+            { nowPlaying && <Carousel movieList={nowPlaying}></Carousel>}
 
             <ContainerMovieList>
-                <MovieList movies={popularMovies} listName='Peliculas Populares' />
-                <MovieList movies={topRated} listName='Peliculas Mejor Puntuadas' />
+                {popularMovies && <MovieList movies={popularMovies} listName='Peliculas Populares' />}
+                {topRated && <MovieList movies={topRated} listName='Peliculas Mejor Puntuadas' />}
             </ContainerMovieList>
         </Container>
     )

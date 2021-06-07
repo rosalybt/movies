@@ -14,14 +14,14 @@ margin: 30px 0;
 
 // COMPONENT
 const Popular = () => {
-    const popularMovies = UseFetch('popular', 'movie')
+    const { results: popularMovies } = UseFetch('popular', 'movie')
     return (
         <>
             <ContainerTitle>
                 <Title>Populares</Title>
             </ContainerTitle>
 
-            <MovieCatalog list={popularMovies} />
+            {popularMovies && <MovieCatalog list={popularMovies} />}
 
             <Pagination />
         </>

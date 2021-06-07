@@ -1,6 +1,8 @@
 import styled from 'styled-components'
-import { BASE_URL_IMG_MEDIUM } from '../utils/Variables'
+import { BASE_URL_IMG_MEDIUM, NOT_AVAILABLE } from '../utils/Variables'
 import { Flex } from './Commons'
+
+
 
 // STYLE
 const Container = styled(Flex)`
@@ -36,7 +38,6 @@ box-shadow:2px 2px 5px -2px rgba(0,0,0,0.8)
 `
 
 const Card = ({ img, title }) => {
-
     return (
         <ContainerCard flexDirection="column" >
 
@@ -45,7 +46,8 @@ const Card = ({ img, title }) => {
                 radius="5px"
                 height="100%"
             >
-                <Image src={BASE_URL_IMG_MEDIUM + img} alt={`${title} poster`} />
+                <Image src={img ? BASE_URL_IMG_MEDIUM + img : NOT_AVAILABLE} alt={`${title} poster`} />
+
             </Container>
 
             <Container

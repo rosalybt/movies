@@ -17,9 +17,9 @@ const CardCatalog = ({ list }) => {
         <Container>
             {
                 list.map(movie => {
-                    return <Link to={`/movie/${movie.id}/info`}>
-                        <MovieCard key={movie.id}
-                            img={movie.poster_path || movie.backdrop_path}
+                    return <Link to={`/movie/${movie.id}/info`} key={movie.id}>
+                        <MovieCard
+                            img={movie.poster_path}
                             title={movie.title}
                         />
                     </Link>
