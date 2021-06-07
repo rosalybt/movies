@@ -38,9 +38,9 @@ function App() {
           <Nav />
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route path="/new-movies" component={NewMovies} />
-            <Route path="/populars" component={Populars} />
-            <Route path="/search" component={Search} />
+            <Route path="/new-movies/page/:num" component={NewMovies} />
+            <Route path="/populars/page/:num" component={Populars} />
+            <Route path="/search/page/:num" component={Search} />
             <Route path="/movie/:id/:section" component={MoreInfo} />
             <Route path="/person/:id/:section" component={Person} />
           </Switch>

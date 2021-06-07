@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import Logo from '../logo.png'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useParams, useLocation, useRouteMatch } from 'react-router-dom'
 
 
 const NavBar = styled.nav`
@@ -43,6 +43,8 @@ width:90px ;
 
 
 const Nav = () => {
+    // const kk = useParams()
+    // console.log(kk)
 
     return (
         <NavBar>
@@ -56,19 +58,19 @@ const Nav = () => {
                     </Item>
                 </Link>
 
-                <Link to="/new-movies" activeClassName='active'>
+                <Link to="/new-movies/page/1" activeClassName='active'>
                     <Item>
                         Ultimos Lanzamientos
                     </Item>
                 </Link>
 
-                <Link to="/populars" activeClassName='active'>
+                <Link to="/populars/page/1" activeClassName='active'>
                     <Item>
                         Populares
                     </Item>
                 </Link>
 
-                <Link to="/search" activeClassName='active'>
+                <Link to="/search/page/1" activeClassName='active'>
                     <Item >
                         Buscar
                     </Item>

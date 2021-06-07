@@ -8,7 +8,7 @@ const useFetch = (param, resource) => {
     useEffect(() => {
         fetch(URL)
             .then(res => res.json())
-            .then(data => setSearch(data.results || data))
+            .then(data => setSearch(data))
     }, [URL])
 
 
