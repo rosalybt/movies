@@ -3,7 +3,7 @@ import { Pagination } from '@zendeskgarden/react-pagination';
 import { ThemeProvider } from '@zendeskgarden/react-theming';
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom'
-import { getRootURL } from '../utils/Variables'
+import { getRootURL } from '../../utils/Variables'
 
 // STYLES
 const Container = styled.div`

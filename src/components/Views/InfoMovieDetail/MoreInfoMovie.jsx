@@ -3,10 +3,10 @@ import { BrowserRouter, Route, Switch, useParams } from 'react-router-dom'
 import NavBarInfo from "./NavInfo";
 import InfoBox from "./InfoBox";
 import Cast from "./Cast";
-import SimilarMovies from './Similars'
+import SimilarMovies from './Similars';
 import Trailer from "./Trailer";
-import UseFetch from '../hooks/useFetch'
-import { BASE_URL_IMG_ORIGINAL } from "../utils/Variables";
+import UseFetch from '../../../hooks/useFetch'
+import { BASE_URL_IMG_ORIGINAL } from "../../../utils/Variables";
 
 
 // STYLES

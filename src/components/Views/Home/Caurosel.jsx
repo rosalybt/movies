@@ -1,9 +1,9 @@
 import React from 'react-dom'
-import { Link, useRouteMatch } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components'
 import Slider from 'react-styled-carousel';
-import ButtonSimple from './Button'
-import { BASE_URL_IMG } from '../utils/Variables'
+import ButtonSimple from '../../SharedComponents/Button'
+import { BASE_URL_IMG } from '../../../utils/Variables'
 
 
 //STYLES

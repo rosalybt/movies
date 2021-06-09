@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import MovieList from './MovieList'
 import Carousel from './Caurosel'
-import UseFetch from './../hooks/useFetch'
+import UseFetch from '../../../hooks/useFetch'
 
 
 const ContainerMovieList = styled.div`

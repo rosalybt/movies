@@ -1,5 +1,5 @@
-import MovieCatalog from "./CardCatalog"
-import useFetch from '../hooks/useFetch'
+import MovieCatalog from "../../SharedComponents/CardCatalog";
+import useFetch from '../../../hooks/useFetch'
 
 
 

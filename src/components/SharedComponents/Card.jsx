@@ -1,8 +1,6 @@
 import styled from 'styled-components'
-import { BASE_URL_IMG_MEDIUM, NOT_AVAILABLE } from '../utils/Variables'
-import { Flex } from './Commons'
-
-
+import { BASE_URL_IMG_MEDIUM, NOT_AVAILABLE } from '../../utils/Variables'
+import { Flex } from '../Commons'
 
 // STYLE
 const Container = styled(Flex)`

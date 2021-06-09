@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { BASE_URL_IMG_MEDIUM } from '../utils/Variables'
+import { BASE_URL_IMG_MEDIUM } from '../../../utils/Variables'
 
 
 // STYLE

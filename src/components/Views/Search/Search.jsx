@@ -1,10 +1,9 @@
-import MovieCatalog from './CardCatalog'
-import Pagination from './Pagination'
+import MovieCatalog from '../../SharedComponents/CardCatalog';
+import Pagination from '../../SharedComponents/Pagination'
 import FormSearch from './FormSearch'
-// import UseFetch from '../hooks/useFetch'
 import { useEffect, useState } from 'react'
 import { useRouteMatch } from 'react-router-dom'
-import { createUrl } from '../utils/Variables'
+import { createUrl } from '../../../utils/Variables'
 
 const Search = () => {
     const { params } = useRouteMatch()

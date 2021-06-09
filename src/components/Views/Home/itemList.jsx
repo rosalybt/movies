@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components'
-import Button from './Button';
+import Button from '../../SharedComponents/Button';
 import { Link } from 'react-router-dom';
-import { Flex } from './Commons'
+import { Flex } from '../../Commons'
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 
 // STYLES

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Logo from '../logo.png'
+import Logo from '../../utils/logo.png'
 import { NavLink } from 'react-router-dom'
 
 
