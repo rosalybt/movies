@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import Logo from '../logo.png'
-import { NavLink, useParams, useLocation, useRouteMatch } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 
 const NavBar = styled.nav`

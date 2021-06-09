@@ -9,17 +9,22 @@ import { createUrl } from '../utils/Variables'
 const Search = () => {
     const { params } = useRouteMatch()
     const [{ results: topRated, page, total_pages }, setMovies] = useState({})
+    const [search, SetSearch] = useState()
 
     useEffect(() => {
-        fetch(createUrl('movie?query=hulk&', 'search', params.num))
+        fetch(createUrl(search ? `movie?query=${search}&` : 'top_rated?', search ? 'search' : 'movie', params.num))
             .then(res => res.json())
             .then(data => setMovies(data))
-    }, [params.num])
+    }, [params.num, search])
 
-    // const { results: topRated } = UseFetch('top_rated', 'movie')
+
+    const handleSubmit = (value) => {
+        SetSearch(value)
+    }
+
     return (
         <>
-            <FormSearch />
+            <FormSearch handleInput={handleSubmit} />
 
             {topRated && <MovieCatalog list={topRated} />}
 
