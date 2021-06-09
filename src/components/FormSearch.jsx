@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components'
 import Button from './Button'
 import SearchIcon from '@material-ui/icons/Search';
@@ -27,18 +27,27 @@ border: 1px solid #e8e8e8;
 padding: 10px;
 `
 
-export default function CustomizedInputBase() {
+export default function CustomizedInputBase({ handleInput }) {
+    const [inputValue, setInputValue] = useState('')
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        handleInput(inputValue)
+    }
 
     return (
 
         <Container>
-            <Form >
+            <Form onSubmit={(e) => handleSubmit(e)} >
                 <InputBase
+                    value={inputValue}
+                    onChange={(e) => setInputValue(e.target.value)}
                     placeholder="Buscar peliculas"
                     aria-label="Buscar Peliculas"
                 />
                 <Button
                     type="submit"
+
                     icon={<SearchIcon />}
                     aria-label="Buscar" />
             </Form>
