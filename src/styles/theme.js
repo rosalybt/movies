@@ -4,14 +4,14 @@ export const theme = {
         primary: "#001529",
         secondary: "#1890ff",
         tertiary: "#fafafa",
-        text: "#fff",
+        text: "#000",
         border: "2px solid #e8e8e8",
         background: "rgba(0, 0, 0, 0.65)",
         // dark
         primaryDark: "#001529",
         secondaryDark: "#1890ff",
         tertiaryDark: "#fafafa",
-        textDark: "#000",
+        textDark: "#fff",
         backgroundDark: "rgba(0, 0, 0, 0.65)",
     },
     sizes: {
@@ -24,6 +24,10 @@ export const theme = {
         small: "5px",
         medium: "15px",
         large: "30px"
+
+    },
+
+    fontWeight: {
 
     },
 

@@ -20,13 +20,13 @@ margin:0;
 
 const Item = styled(ListItem)`
 padding: ${({ theme }) => theme.padding.medium};
+color: ${({ theme }) => theme.colors.textDark};
 display:flex;
 align-items: center;
 height: 100%;
 `
 const Link = styled(NavLink)`
 padding: 0 ${({ theme }) => theme.padding.large} ;
-margin: 0;
 color: ${props => props.theme.colors.text};
 
 &.active{

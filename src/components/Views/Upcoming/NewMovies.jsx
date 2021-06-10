@@ -8,11 +8,12 @@ import { createUrl } from '../../../utils/Variables'
 
 // STYLES
 const Title = styled.h2`
-font-weight: 500;
+font-weight: x-large;
+font-size: x-large;
 `
 const ContainerTitle = styled.div`
 text-align: center;
-margin: 30px 0;
+margin: ${({ theme }) => theme.margin.large} 0;
 `
 
 // COMPONENT

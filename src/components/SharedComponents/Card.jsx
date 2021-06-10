@@ -4,34 +4,34 @@ import { Flex } from '../Commons'
 
 // STYLE
 const Container = styled(Flex)`
-width: 300px;
-height: ${props => props.height || 'auto'};
-margin: ${props => props.margin || '0'};
-display: flex;
-justify-content:${props => props.justifyContent || 'center'} ;
-flex-direction: column;
-align-items: ${props => props.aligItems || 'center'};
-box-shadow: ${props => props.shadow || 'none'};
-border-radius:${props => props.radius || '0'};
-overflow: hidden;
-box-sizing:border-box
+`
+
+const ContainerImg = styled(Container)`
+height:90%;
 `
 const ContainerCard = styled(Container)`
-margin-bottom:40px
+transition: all 1s ease;
+margin-bottom:${({ theme }) => theme.margin.large};
+width:${({ theme }) => theme.sizes.cardWidth};
+height:${({ theme }) => theme.sizes.cardHeight};
 
+&:hover{transform: scale(1.04);}
 `
 const Title = styled.h4`
 font-weight: 500;
+margin-top:${({ theme }) => theme.margin.medium};
 width: 100%;
-font-size: x-large;
+font-size: large;
 text-align: left;
-color: black
+color: ${({ theme }) => theme.colors.text}
 `
 
 const Image = styled.img`
 object-fit: cover;
 height: 100%;
-box-shadow:2px 2px 5px -2px rgba(0,0,0,0.8)
+width:fit-content;
+border-radius: ${({ theme }) => theme.shapes.corner};
+box-shadow:2px 2px 5px -2px rgba(0,0,0,0.8);
 
 `
 
@@ -39,14 +39,12 @@ const Card = ({ img, title }) => {
     return (
         <ContainerCard flexDirection="column" >
 
-            <Container
-                padding="0"
-                radius="5px"
-                height="100%"
-            >
-                <Image src={img ? BASE_URL_IMG_MEDIUM + img : NOT_AVAILABLE} alt={`${title} poster`} />
-
-            </Container>
+            <ContainerImg justifyContent>
+                <Image
+                    src={img ? BASE_URL_IMG_MEDIUM + img : NOT_AVAILABLE}
+                    alt={`${title} poster`}
+                />
+            </ContainerImg>
 
             <Container
                 flexDirection="column"
