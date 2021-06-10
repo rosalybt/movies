@@ -7,9 +7,9 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 
 // STYLES
 const ContainerItem = styled(Flex)`
-padding: 0 5px;
+padding: 0 ${({ theme }) => theme.margin.small};
 margin: ${({ theme }) => theme.margin.small} 0;
-border-bottom: 2px solid ${({ theme }) => theme.colors.border};
+border-bottom: ${({ theme }) => theme.colors.border};
 `
 const Avatar = styled.img`
 border-radius: ${props => props.theme.shapes.rounded};
@@ -17,17 +17,16 @@ width: 40px;
 height: 40px;
 object-fit: cover;
 `
-const Container = styled(ContainerItem)`
+const Container = styled(Flex)`
+margin: ${({ theme }) => theme.margin.small} 0;
 border-bottom: none;
 border-radius: ${props => props.theme.shapes.rounded};
-height: ${props => props.height};
-width: ${props => props.width};
 border-radius: ${props => props.radius};
 `
 const MovieTitle = styled.h4`
 font-weight: lighter;
 text-align: left;
-margin-left: 15px;
+margin-left: ${({ theme }) => theme.margin.medium};
 `
 
 // COMPONENT
@@ -38,16 +37,19 @@ const ItemList = ({ id, img, title }) => {
             alignItems="center"
             justifyContent="space-between"
         >
-            <Container >
-                <Container height="40px" width="40px"  >
+            <Container alignItems="center" >
+
+                <Container >
                     <Avatar
                         aria-label="poster de pelicula"
-                        src={`https://image.tmdb.org/t/p/w500/${img}`} />
+                        src={`https://image.tmdb.org/t/p/w500/${img}`}
+                    />
                 </Container>
 
-                <MovieTitle>
-                    {title}
-                </MovieTitle>
+                <Container >
+                    <MovieTitle> {title}</MovieTitle>
+                </Container>
+
             </Container>
 
             <Container>

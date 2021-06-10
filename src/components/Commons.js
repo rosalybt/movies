@@ -11,9 +11,8 @@ export const Flex = styled.div`
 `
 
 export const List = styled.ul`
-  list-style: none;
+list-style-type: none;
 `
-
 export const ListItem = styled.li`
   width: 100%;
 `

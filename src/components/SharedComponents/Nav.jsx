@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import Logo from '../../utils/logo.png'
 import { NavLink } from 'react-router-dom'
+import { List, ListItem } from '../Commons'
 
 
 const NavBar = styled.nav`
@@ -9,49 +10,44 @@ color:${props => props.theme.colors.text};
 display: flex;
 flex-direction: row;
 justify-content: flex-start;
-padding: 0 30px 0 30px;
 `;
 
-const List = styled.ul`
-list-style-type: none;
+const NavList = styled(List)`
 display: flex;
 justify-content: space-around;
 margin:0;
-`;
+`
 
-const Item = styled.li`
-padding: 20px;
-box-sizing: border-box;
+const Item = styled(ListItem)`
+padding: ${({ theme }) => theme.padding.medium};
 display:flex;
 align-items: center;
 height: 100%;
 `
 const Link = styled(NavLink)`
-text-decoration: none;
+padding: 0 ${({ theme }) => theme.padding.large} ;
 margin: 0;
 color: ${props => props.theme.colors.text};
 
 &.active{
-    background-color:${props => props.theme.colors.secondary}}
-
+    background-color:${({ theme }) => theme.colors.secondary}};
 `
 const Image = styled.img`
-width:90px ;
+width: 90px;
 `;
 
 
 
 
 const Nav = () => {
-    // const kk = useParams()
-    // console.log(kk)
 
     return (
         <NavBar>
+            <NavList>
+                <Link exact to="/" activeClassName='selected'>
+                    <Image src={Logo} alt="logo" />
+                </Link>
 
-            <Image src={Logo} alt="logo" />
-
-            <List>
                 <Link exact to="/" activeClassName='active'>
                     <Item>
                         Home
@@ -75,7 +71,7 @@ const Nav = () => {
                         Buscar
                     </Item>
                 </Link>
-            </List>
+            </NavList>
 
         </NavBar >
     )
