@@ -14,7 +14,7 @@ padding: 20px 0
 `
 
 const Cast = (id) => {
-    const casting = useFetch(`${id}/credits`, 'movie')
+    const casting = useFetch(`${id}/credits?`, 'movie')
 
     return (
         <Container>

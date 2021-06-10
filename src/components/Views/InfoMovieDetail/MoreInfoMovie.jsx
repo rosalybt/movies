@@ -28,7 +28,7 @@ justify-content: ${(props) => props.justifyContent || "Inherited"} ;
 
 const MoreInfo = () => {
     let { id } = useParams()
-    const { backdrop_path } = UseFetch(id, 'movie')
+    const { backdrop_path } = UseFetch(`${id}?`, 'movie')
 
     return (
 

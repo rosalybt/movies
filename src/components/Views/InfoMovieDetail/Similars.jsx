@@ -4,13 +4,12 @@ import useFetch from '../../../hooks/useFetch'
 
 
 const SimilarMovies = (id) => {
-    debugger
-    const similarMovies = useFetch(`${id}/similar`, 'movie')
-    console.log(similarMovies)
+    const { results: similarMovies } = useFetch(`${id}/similar?`, 'movie')
     return (
-
-        <MovieCatalog list={similarMovies} />
-    )
+        <>
+            { similarMovies && <MovieCatalog list={similarMovies} />}
+        </>
+    );
 }
 
 export default SimilarMovies

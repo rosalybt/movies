@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components'
 import Slider from 'react-styled-carousel';
 import ButtonSimple from '../../SharedComponents/Button'
-import { BASE_URL_IMG_ORIGINAL } from '../../../utils/Variables'
+import { BASE_URL_IMG_ORIGINAL, convertToUppercase } from '../../../utils/Variables';
 import { Flex } from '../../Commons'
 
 
@@ -11,7 +11,7 @@ import { Flex } from '../../Commons'
 const MoreInfoBox = styled(Flex)`
 position: absolute;
 background: ${({ theme }) => theme.colors.background};
-color: ${({ theme }) => theme.colors.text};
+color: ${({ theme }) => theme.colors.textDark};
 border-radius: ${({ theme }) => theme.sizes.small};
 padding: ${({ theme }) => theme.padding.large};
 bottom: ${({ theme }) => theme.sizes.large};
@@ -26,9 +26,8 @@ background-size: cover;
 `
 
 const Button = styled(ButtonSimple)`
-
 background-color: ${({ theme }) => theme.colors.secondary};
-color:${({ theme }) => theme.colors.text} ;
+color:${({ theme }) => theme.colors.textDark} ;
 `
 
 const Title = styled.h2`
@@ -79,7 +78,7 @@ const Caurosel = ({ movieList }) => {
     let movies = movieList.map(movie => {
         return {
             id: movie.id,
-            name: movie.title,
+            name: convertToUppercase(movie.title),
             description: movie.overview,
             img: movie.backdrop_path
         }
@@ -90,7 +89,6 @@ const Caurosel = ({ movieList }) => {
         < Slider
             cardsToShow={1}
             autoSlide
-            // infinite
             padding="0px"
         >
             {/* {solo me toma los desliza los slides si estan de esta manera,

@@ -7,7 +7,7 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 
 // STYLES
 const ContainerItem = styled(Flex)`
-padding: 0 ${({ theme }) => theme.margin.small};
+padding: 0 ${({ theme }) => theme.margin.medium};
 margin: ${({ theme }) => theme.margin.small} 0;
 border-bottom: ${({ theme }) => theme.colors.border};
 `
@@ -57,6 +57,7 @@ const ItemList = ({ id, img, title }) => {
                     <Button
                         content={<ChevronRightIcon />}
                         radius="50%"
+                        color="#fff"
                         padding="8px 10px"
                         aria-label="mas informacion" />
                 </Link>

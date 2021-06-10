@@ -14,7 +14,7 @@ width: 100%;
 
 `
 const Title = styled.h2`
-color: ${props => props.theme.colors.text};
+color: ${props => props.theme.colors.textDark};
 text-align: center;
 `
 const Container = styled(Flex)`

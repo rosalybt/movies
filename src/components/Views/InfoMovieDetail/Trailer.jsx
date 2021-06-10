@@ -15,7 +15,7 @@ padding: 10%;
 
 const Trailer = (id) => {
 
-    const videos = useFetch(`${id}/videos`, 'movie')
+    const videos = useFetch(`${id}/videos?`, 'movie')
     const msj = 'No disponible.'
 
     return (
