@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import MovieCard from './Card'
+import { convertToUppercase } from '../../utils/Variables'
 
 // STYLES
 const Container = styled.div`
@@ -20,7 +21,7 @@ const CardCatalog = ({ list }) => {
                     return <Link to={`/movie/${movie.id}/info`} key={movie.id}>
                         <MovieCard
                             img={movie.poster_path}
-                            title={movie.title}
+                            title={convertToUppercase(movie.title)}
                         />
                     </Link>
                 })

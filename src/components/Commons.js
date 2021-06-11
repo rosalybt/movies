@@ -9,11 +9,18 @@ export const Flex = styled.div`
   align-items: ${props => props.alignItems || "flex-start"};
   flex-wrap: ${props => props.flexWrap}
 `
-
-export const List = styled.ul`
-  list-style: none;
+export const Nav = styled.nav`
+display: flex;
+justify-content: center;
 `
-
+export const List = styled.ul`
+list-style-type: none;
+display:flex;
+justify-content: center;
+`
 export const ListItem = styled.li`
+display:flex;
+justify-content: Center;
+align-items: center;
   width: 100%;
 `

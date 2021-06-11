@@ -1,15 +1,15 @@
-import Nav from './components/Nav'
+import Nav from './components/SharedComponents/Nav'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { ThemeProvider, createGlobalStyle } from 'styled-components'
-import Home from './components/Home';
-import NewMovies from './components/NewMovies';
-import Populars from './components/Populars';
-import Search from './components/Search';
-import Footer from './components/Footer';
+import Home from './components/Views/Home/Home';
+import NewMovies from './components/Views/Upcoming/NewMovies';
+import Populars from './components/Views/Popular/Populars';
+import Search from './components/Views/Search/Search';
+import Footer from './components/SharedComponents/Footer';
 import { theme } from './styles/theme';
 
-import MoreInfo from './components/MoreInfoMovie';
-import Person from './components/Person';
+import MoreInfo from './components/Views/InfoMovieDetail/MoreInfoMovie';
+import Person from './components/Views/InfoPersonDetail/Person';
 
 const GlobalStyle = createGlobalStyle`
 

@@ -1,26 +1,25 @@
 import React from 'react-dom'
-import { Link, useRouteMatch } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components'
 import Slider from 'react-styled-carousel';
-import ButtonSimple from './Button'
-import { BASE_URL_IMG } from '../utils/Variables'
+import ButtonSimple from '../../SharedComponents/Button'
+import { BASE_URL_IMG_ORIGINAL, convertToUppercase } from '../../../utils/Variables';
+import { Flex } from '../../Commons'
 
 
 //STYLES
-const MoreInfoBox = styled.div`
+const MoreInfoBox = styled(Flex)`
 position: absolute;
 background: ${({ theme }) => theme.colors.background};
-color: ${({ theme }) => theme.colors.text};
-text-align: center;
+color: ${({ theme }) => theme.colors.textDark};
+border-radius: ${({ theme }) => theme.sizes.small};
+padding: ${({ theme }) => theme.padding.large};
+bottom: ${({ theme }) => theme.sizes.large};
 width: 50%;
-padding: 1em;
-bottom: 25px;
-border-radius: 5px;
+
 `
-const Container = styled.div`
+const Container = styled(Flex)`
 position: relative;
-display: flex;
-justify-content: center;
 height: 60vh;
 background: url(${props => props.urlImg || "none"}) no-repeat  ;
 background-size: cover;
@@ -28,12 +27,16 @@ background-size: cover;
 
 const Button = styled(ButtonSimple)`
 background-color: ${({ theme }) => theme.colors.secondary};
-color:${({ theme }) => theme.colors.text} ;
+color:${({ theme }) => theme.colors.textDark} ;
 `
 
 const Title = styled.h2`
 font-weight: bolder;
+`
 
+const Description = styled.p`
+text-align: justify;
+margin:${({ theme }) => theme.margin.medium} 0;
 `
 //LOGIC
 
@@ -43,13 +46,20 @@ const Item = ({ item }) => {
 
     return (
 
-        <Container urlImg={`${BASE_URL_IMG + item.img}`} >
-            <MoreInfoBox>
+        <Container
+            urlImg={`${BASE_URL_IMG_ORIGINAL + item.img}`}
+            justifyContent="center"
+            alignItems="normal"
+        >
+            <MoreInfoBox
+                flexDirection="column"
+                alignItems="center"
+            >
                 <Title>{item.name}</Title>
-                <p>{item.description}</p>
+                <Description>{item.description}</Description>
                 <Link to={`/movie/${item.id}/info`}>
                     <Button
-                        content="Ver mas... "
+                        content="Ver mas detalles de la pelicula"
                         bgcolor="#1883ba"
                         color="#fff"
                         radius="5px"
@@ -68,7 +78,7 @@ const Caurosel = ({ movieList }) => {
     let movies = movieList.map(movie => {
         return {
             id: movie.id,
-            name: movie.title,
+            name: convertToUppercase(movie.title),
             description: movie.overview,
             img: movie.backdrop_path
         }
@@ -79,7 +89,6 @@ const Caurosel = ({ movieList }) => {
         < Slider
             cardsToShow={1}
             autoSlide
-            // infinite
             padding="0px"
         >
             {/* {solo me toma los desliza los slides si estan de esta manera,

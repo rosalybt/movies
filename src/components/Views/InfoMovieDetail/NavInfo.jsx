@@ -1,44 +1,27 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom'
+import { List, Nav } from '../../Commons'
 
 
-const NavBar = styled.nav`
-background-color: black;
-color:white;
-display: flex;
-flex-direction: row;
-justify-content: center;
-padding: 0 30px 0 30px;
-margin-bottom: 30px;
+
+const NavBar = styled(Nav)`
+padding: 0 ${({ theme }) => theme.padding.large};
+margin-bottom: ${({ theme }) => theme.margin.medium} 0;
 `;
 
-const List = styled.ul`
-list-style-type: none;
-display: flex;
+const ListOfItems = styled(List)`
 justify-content: space-around;
-margin:0;
 `;
 
 const Item = styled.li`
-padding: 5px 20px;
-box-sizing: border-box;
-display:flex;
-align-items: center;
+padding: ${({ theme }) => theme.padding.medium};
 font-size: x-large;
-height: 100%;
 
-&:hover{
-    border-bottom: 3px solid red; 
-}
+&:hover{border-bottom: ${({ theme }) => theme.colors.highlighter} }
 `
 
 const Link = styled(NavLink)`
-text-decoration: none;
-margin: 0;
-color: white;
-
-&.active{
-    border-bottom: 3px solid red; 
+    &.active{ border-bottom: ${({ theme }) => theme.colors.highlighter};
 }
 
 `
@@ -46,12 +29,12 @@ color: white;
 const NavBarInfo = ({ movieID }) => {
     return (
         <NavBar>
-            <List>
+            <ListOfItems>
                 <Link to={`/movie/${movieID}/info`} activeClassName='active'>
-                    <Item>
+                    < Item >
                         INFO
-                    </Item>
-                </Link>
+                    </Item >
+                </Link >
 
                 <Link to={`/movie/${movieID}/cast`} activeClassName='active'>
                     <Item>
@@ -70,7 +53,7 @@ const NavBarInfo = ({ movieID }) => {
                         SIMILARES
                     </Item>
                 </Link>
-            </List>
+            </ListOfItems >
         </NavBar >
     )
 }

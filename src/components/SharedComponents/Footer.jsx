@@ -2,8 +2,8 @@ import styled from 'styled-components'
 
 const FooterBar = styled.footer`
 background-color: ${({ theme }) => theme.colors.primary};
-color: ${({ theme }) => theme.colors.text};
-padding: 20px;
+color: ${({ theme }) => theme.colors.textDark};
+padding: ${({ theme }) => theme.padding.large};
 text-align: center;
 `
 
@@ -11,7 +11,7 @@ text-align: center;
 const Footer = () => {
     return (
         <FooterBar>
-            <p>🎥Movie App</p>
+            <p>🎥 Movie App, hecha con muuuucha pasion 💗</p>
         </FooterBar>
     )
 }

@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import Rating from "./Rating";
-import SocialMediaBox from "./SocialMediaBox";
-import UseFetch from '../hooks/useFetch'
-import { BASE_URL_IMG } from '../utils/Variables'
+import Rating from "../../SharedComponents/Rating";
+import SocialMediaBox from "../../SharedComponents/SocialMediaBox";
+import UseFetch from '../../../hooks/useFetch'
+import { BASE_URL_IMG } from '../../../utils/Variables'
 import { useParams } from "react-router";
 
 const Container = styled.div`

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components'
-import Button from './Button'
+import Button from '../../SharedComponents/Button'
 import SearchIcon from '@material-ui/icons/Search';
 
 

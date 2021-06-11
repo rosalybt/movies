@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import CastCard from './CastCard'
-import useFetch from '../hooks/useFetch'
+import CastCard from '../InfoMovieDetail/CastCard'
+import useFetch from '../../../hooks/useFetch'
 import { Link, useParams } from 'react-router-dom'
 
 const Container = styled.div`

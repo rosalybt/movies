@@ -1,27 +1,23 @@
 import Item from './itemList'
 import styled from 'styled-components'
+import { Flex, List, ListItem } from '../../Commons'
 
 //STYLES
-const List = styled.ul`
-list-style-type: none;
-`
-
-const ContainerMovieList = styled.div`
-display: flex;
-flex-direction: column;
+const ContainerMovieList = styled(Flex)`
 max-width:425px;
 height: 550px
 `
-const ContainerTitle = styled.div`
+const ContainerTitle = styled(Flex)`
+padding:  ${({ theme }) => theme.padding.medium} 0;
 background-color: ${props => props.theme.colors.primary};
-height: min-content;
+width: 100%;
+
 `
 const Title = styled.h2`
-color: ${props => props.theme.colors.text};
+color: ${props => props.theme.colors.textDark};
 text-align: center;
-margin:  ${({ theme }) => theme.margin.medium} 0
 `
-const Container = styled.div`
+const Container = styled(Flex)`
 overflow-y: scroll;
 overflow-x: hidden;
 border: 1px solid #e8e8e8;
@@ -31,24 +27,24 @@ border: 1px solid #e8e8e8;
 const MovieList = ({ movies, listName }) => {
 
     return (
-        <ContainerMovieList>
-            <ContainerTitle>
-                <Title>
-                    {listName}
-                </Title>
+        <ContainerMovieList flexDirection="column">
+
+            <ContainerTitle justifyContent="center">
+                <Title> {listName} </Title>
             </ContainerTitle>
+
             <Container>
                 <List>
                     {movies.map(movie => {
 
                         return (
-                            <li key={movie.id}>
+                            <ListItem key={movie.id}>
                                 <Item
                                     id={movie.id}
                                     img={movie.backdrop_path}
                                     title={movie.title}
                                 />
-                            </li>
+                            </ListItem>
                         )
 
                     })}
