@@ -7,22 +7,29 @@ import SimilarMovies from './Similars';
 import Trailer from "./Trailer";
 import UseFetch from '../../../hooks/useFetch'
 import { BASE_URL_IMG_ORIGINAL } from "../../../utils/Variables";
-
+import { Flex } from '../../Commons'
 
 // STYLES
-const ContainerMoreInfo = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 15px;
-  background-color: black;
+const ContainerMoreInfo = styled(Flex)`
+overflow: hidden;
+background-color: ${(props) => props.theme.colors.tertiary}; ;
 `
-const Container = styled(ContainerMoreInfo)`
-flex-direction: ${(props) => props.flexDirection || "row"};
+const Container = styled(Flex)`
 padding: ${(props) => props.padding || 0};
-width: ${(props) => props.width || "100%"};
-height: ${(props) => props.height || "100%"};
-justify-content: ${(props) => props.justifyContent || "Inherited"} ;
+width: ${(props) => props.width};
+height: ${(props) => props.height};
+`
+
+const ContainerPost = styled(Flex)`
+width: 100vw;
+height: 100vh;
+`
+
+const Image = styled.img`
+object-fit: cover;
+object-position: center center;
+width: 100vw;
+height: 100vh;
 `
 // COMPONENT
 
@@ -32,13 +39,22 @@ const MoreInfo = () => {
 
     return (
 
-        <ContainerMoreInfo >
+        <ContainerMoreInfo
+            flexDirection="column"
+            justifyContent="center"
+            alignItems="center"
+        >
+            <ContainerPost height="100vh" justifyContent>
+                <Image src={`${BASE_URL_IMG_ORIGINAL}${backdrop_path}`} alt="poster" />
+            </ContainerPost>
 
-            <Container height="100vh"  >
-                <img src={`${BASE_URL_IMG_ORIGINAL}${backdrop_path}`} alt="postter" />
-            </Container>
             <BrowserRouter>
-                <Container flexDirection >
+
+                <Container
+                    flexDirection="column"
+                    justifyContent="center"
+                    alignItems="center"
+                >
                     <NavBarInfo movieID={id} />
                     <Switch>
                         <Route path={`/movie/${id}/info`} component={() => InfoBox(id)} />
@@ -47,6 +63,7 @@ const MoreInfo = () => {
                         <Route path={`/movie/${id}/similars`} component={() => SimilarMovies(id)} />
                     </Switch>
                 </Container>
+
             </BrowserRouter>
 
 

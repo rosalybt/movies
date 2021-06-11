@@ -1,42 +1,91 @@
 import styled from "styled-components";
 import Rating from "../../SharedComponents/Rating";
-import SocialMediaBox from "../../SharedComponents/SocialMediaBox";
 import UseFetch from '../../../hooks/useFetch'
-import { BASE_URL_IMG } from '../../../utils/Variables'
+import { BASE_URL_IMG, NOT_AVAILABLE, convertToUppercase, getYear, formatToCurrency } from '../../../utils/Variables'
+import { Flex, List } from '../../Commons'
 
-const Container = styled.div`
-  display: flex;
-flex-direction: ${(props) => props.flexDirection || "row"};
-padding: ${(props) => props.padding || 0};
+const Container = styled(Flex)`
 width: ${(props) => props.width || "100%"};
-justify-content: ${(props) => props.justifyContent || "Inherited"} ;
 `;
 
-const ContainerInfoBox = styled.section`
-display: flex;
-flex-direction: row;
-padding: 25px 90px;
-justify-content: ${(props) => props.justifyContent || "Inherited"} ;
-background-color: black;
-color: white;
+const ContainerImg = styled(Flex)`
+width: 50%;
+align-items: center;
+`
 
+const ContainerInfoBox = styled(Flex)`
+background-color:${(props) => props.theme.colors.tertiary}; 
+width: fit-content;
+padding:  ${(props) => props.theme.padding.large};
 `;
 
+const Image = styled.img`
+object-fit: cover;
+object-position: center center;
+width: fit-content;
+height: 400px;
+border-radius: ${({ theme }) => theme.shapes.corner};
+`
+const Text = styled.p`
+font-size:  ${({ theme }) => theme.sizes.p};
+text-align: justify;
+`
+
+const Title = styled.h2`
+font-size:  ${({ theme }) => theme.sizes.h2};
+`
+const SubTitle = styled.h3`
+ margin: ${({ theme }) => theme.margin.medium} 0;
+font-size:  ${({ theme }) => theme.sizes.h3};
+display: inline;
+`
+const NoteHighlighter = styled.span`
+margin: 0 ${({ theme }) => theme.margin.medium} ;
+`
+const ContainerText = styled(Flex)`
+
+`
 
 const InfoBox = (id) => {
-    const movie = UseFetch(`${id}?`, 'movie')
+    const { title: movieTitle, poster_path, release_date, overview,
+        runtime, genres, production_companies, budget, revenue } = UseFetch(`${id}?`, 'movie')
+    let IMAGE_PATH = BASE_URL_IMG + poster_path
 
     return (
-        <ContainerInfoBox padding="30px" width="50%" justifyContent="space-evenly">
+        <ContainerInfoBox
+            justifyContent="center"
+            alignItems="center"
+            flexWrap >
 
-            <Container width="25%">
-                <img src={`${BASE_URL_IMG}${movie.poster_path}`} width="100%" alt="img=pe" />
+            <Container
+                width="40%"
+                flexDirection="column"
+                justifyContent="center"
+                alignItems="center"
+                padding="50px"
+            >
+                <ContainerImg
+                    flexDirection
+                    justifyContent
+                    alignItems="flex-end"
+                >
+                    {poster_path ?
+                        <Image src={IMAGE_PATH} alt={`poster de la pelicula ${movieTitle}.`} />
+                        : <Image src={NOT_AVAILABLE} alt="no foto" />
+                    }
+                </ContainerImg>
             </Container>
 
-            <Container width="25%" flexDirection="column">
+            <Container
+                width="40%"
+                flexDirection="column"
+                justifyContent="center"
+                alignItems="center"
+            >
                 <Container >
                     <Container >
-                        <h2>{movie.title}</h2> <span>{movie.release_date}</span>
+                        <Title>{convertToUppercase(`${movieTitle}`)}</Title>
+                        <Text><NoteHighlighter>{getYear(release_date)}</NoteHighlighter></Text>
                     </Container>
 
                 </Container>
@@ -44,35 +93,43 @@ const InfoBox = (id) => {
                 <Container flexDirection="column">
                     <Rating />
 
-                    <h3>General</h3>
-                    <p>
-                        {movie.overview}
-                    </p>
+                    <SubTitle>General </SubTitle>
+                    <Text>{overview}</Text>
 
-                    <p>Durancion: {movie.runtime}</p>
-
-                    <ul>
-                        <p>Genero</p>
-                        {movie.genres && movie.genres.map((genere) => <li key={genere.id}>{genere.name}</li>)}
-                    </ul>
-
-                    <p>Presupuesto:{movie.budget}</p>
-                    <p>Recuaudacion:{movie.revenue} </p>
-
-                    <p>Produccion: </p>
-                    {
-                        movie.production_companies && movie.production_companies.map(companies => {
-                            return <span key={companies.id} >{companies.name}</span>
-                        })
-                    }
+                    <ContainerText alignItems="center">
+                        <SubTitle>Durancion: </SubTitle>
+                        <Text>{runtime} Minutos</Text>
+                    </ContainerText>
 
 
-                    <SocialMediaBox />
+                    <List>
+                        <SubTitle>Genero: </SubTitle>
+                        <ContainerText alignItems="center">
+                            {genres && genres.map((genere, index) =>
+                                <Text key={genere.id}> {index ? ', ' : ''}{genere.name}</Text>)}
+                        </ContainerText>
+                    </List>
 
+                    <ContainerText alignItems="center">
+                        <SubTitle> Presupuesto: </SubTitle><Text>{formatToCurrency(budget)}</Text>
+                    </ContainerText>
+
+                    <ContainerText alignItems="center">
+                        <SubTitle> Recuaudacion:</SubTitle><Text>{formatToCurrency(revenue)} </Text>
+                    </ContainerText>
+
+
+                    <SubTitle> Produccion:</SubTitle> <Text>
+                        {
+                            production_companies && production_companies.map(({ name, id }, index) => {
+                                return <Text key={id}>{name}</Text>
+                            })
+                        }
+                    </Text>
                 </Container>
-            </Container>
+            </Container >
 
-        </ContainerInfoBox>
+        </ContainerInfoBox >
     )
 }
 
