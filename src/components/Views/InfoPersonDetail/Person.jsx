@@ -3,20 +3,18 @@ import NavBar from './NavBarPerson'
 import PersonInfoBox from "./PersonInfoBox";
 import CreditsBox from './CreditsPersonBox'
 import { BrowserRouter, Route, Switch, useParams } from 'react-router-dom'
+import { Flex } from '../../Commons'
 
-const ContainerPerson = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 15px;
-  background-color: black;
+const ContainerPerson = styled(Flex)`
+  padding: ${({ theme }) => theme.padding.medium};
+  background-color:${({ theme }) => theme.colors.tertiary};
 `
 
 const Person = () => {
     const { id } = useParams()
 
     return (
-        <ContainerPerson>
+        <ContainerPerson justifyContent="center" flexDirection="column">
             <BrowserRouter>
                 <NavBar personID={id} />
                 <Switch>

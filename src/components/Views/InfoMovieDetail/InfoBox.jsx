@@ -1,30 +1,61 @@
 import styled from "styled-components";
-import Rating from "../../SharedComponents/Rating";
 import UseFetch from '../../../hooks/useFetch'
 import { BASE_URL_IMG, NOT_AVAILABLE, convertToUppercase, getYear, formatToCurrency } from '../../../utils/Variables'
 import { Flex, List } from '../../Commons'
 
 const Container = styled(Flex)`
-width: ${(props) => props.width || "100%"};
 `;
 
-const ContainerImg = styled(Flex)`
-width: 50%;
+
+const ContainerImagen = styled(Flex)`
+width: ${(props) => props.width};
+justify-content: center;
 align-items: center;
+
+@media screen and (max-width: 768px) {
+   width:45%;
+   height: auto;
+   justify-content: center;
+  }
+  @media screen and (max-width: 426px) {
+   width:100%;
+   justify-content: center;
+  }
+
+`
+
+const ContainerInfo = styled(Flex)`
+width: ${(props) => props.width};
+padding:30px auto;
+
+@media screen and (max-width: 768px) {
+   margin:${(props) => props.theme.margin.small};
+   width:90%
+  }
 `
 
 const ContainerInfoBox = styled(Flex)`
 background-color:${(props) => props.theme.colors.tertiary}; 
 width: fit-content;
 padding:  ${(props) => props.theme.padding.large};
+
+@media screen and (max-width: 768px) {
+  flex-wrap: wrap;
+  justify-content: center;
+  } 
 `;
 
 const Image = styled.img`
 object-fit: cover;
 object-position: center center;
-width: fit-content;
-height: 400px;
+width: 50%;
+height: 50%;
 border-radius: ${({ theme }) => theme.shapes.corner};
+
+@media screen and (max-width: 768px) {
+    height: 25vh;
+    width: 100%;
+  }
 `
 const Text = styled.p`
 font-size:  ${({ theme }) => theme.sizes.p};
@@ -43,8 +74,8 @@ const NoteHighlighter = styled.span`
 margin: 0 ${({ theme }) => theme.margin.medium} ;
 `
 const ContainerText = styled(Flex)`
-
 `
+
 
 const InfoBox = (id) => {
     const { title: movieTitle, poster_path, release_date, overview,
@@ -53,31 +84,24 @@ const InfoBox = (id) => {
 
     return (
         <ContainerInfoBox
-            justifyContent="center"
+            flexDirection="row"
             alignItems="center"
-            flexWrap >
+        >
 
-            <Container
-                width="40%"
-                flexDirection="column"
+            <ContainerImagen
+                width="35%"
                 justifyContent="center"
                 alignItems="center"
-                padding="50px"
             >
-                <ContainerImg
-                    flexDirection
-                    justifyContent
-                    alignItems="flex-end"
-                >
-                    {poster_path ?
-                        <Image src={IMAGE_PATH} alt={`poster de la pelicula ${movieTitle}.`} />
-                        : <Image src={NOT_AVAILABLE} alt="no foto" />
-                    }
-                </ContainerImg>
-            </Container>
+                {poster_path ?
+                    <Image src={IMAGE_PATH} alt={`poster de la pelicula ${movieTitle}.`} />
+                    : <Image src={NOT_AVAILABLE} alt="no foto" />
+                }
 
-            <Container
-                width="40%"
+            </ContainerImagen>
+
+            <ContainerInfo
+                width="60%"
                 flexDirection="column"
                 justifyContent="center"
                 alignItems="center"
@@ -90,8 +114,9 @@ const InfoBox = (id) => {
 
                 </Container>
 
-                <Container flexDirection="column">
-                    <Rating />
+                <Container flexDirection="column"
+                    justifyContent="center"
+                    alignItems="center">
 
                     <SubTitle>General </SubTitle>
                     <Text>{overview}</Text>
@@ -118,16 +143,18 @@ const InfoBox = (id) => {
                         <SubTitle> Recuaudacion:</SubTitle><Text>{formatToCurrency(revenue)} </Text>
                     </ContainerText>
 
-
-                    <SubTitle> Produccion:</SubTitle> <Text>
-                        {
-                            production_companies && production_companies.map(({ name, id }, index) => {
-                                return <Text key={id}>{name}</Text>
-                            })
-                        }
-                    </Text>
+                    <ContainerText alignItems="center">
+                        <SubTitle> Produccion:</SubTitle>
+                        <Text>
+                            {
+                                production_companies && production_companies.map(({ name, id }, index) => {
+                                    return <Text key={id}>{name}</Text>
+                                })
+                            }
+                        </Text>
+                    </ContainerText >
                 </Container>
-            </Container >
+            </ContainerInfo >
 
         </ContainerInfoBox >
     )

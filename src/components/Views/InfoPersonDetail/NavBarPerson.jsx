@@ -1,44 +1,32 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom'
+import { List, ListItem, Nav } from '../../Commons'
 
 
-const NavBar = styled.nav`
-background-color: black;
-color:white;
-display: flex;
+const NavBar = styled(Nav)`
+background-color: ${({ theme }) => theme.colors.tertiary};
 flex-direction: row;
 justify-content: center;
-padding: 0 30px 0 30px;
-margin-bottom: 30px;
+width:100%;
+padding: 0  ${({ theme }) => theme.padding.medium};
+margin-bottom: ${({ theme }) => theme.margin.medium};;
 `;
 
-const List = styled.ul`
-list-style-type: none;
-display: flex;
-justify-content: space-around;
-margin:0;
+const StyledList = styled(List)`
+width:50%;
+flex-wrap: wrap;
 `;
 
-const Item = styled.li`
+const Item = styled(ListItem)`
 padding: 5px 20px;
-box-sizing: border-box;
-display:flex;
+
 align-items: center;
 font-size: x-large;
-height: 100%;
-
-&:hover{
-    border-bottom: 3px solid red; 
-}
 `
 
 const Link = styled(NavLink)`
-text-decoration: none;
-margin: 0;
-color: white;
-
 &.active{
-    border-bottom: 3px solid red; 
+    border-bottom: ${({ theme }) => theme.colors.highlighter}; 
 }
 
 `
@@ -46,20 +34,23 @@ color: white;
 const NavBarInfo = ({ personID }) => {
     return (
         <NavBar>
-            <List>
-                <Link to={`/person/${personID}/info`} activeClassName='active'>
-                    <Item>
+            <StyledList>
+                <Item>
+                    <Link to={`/person/${personID}/info`} activeClassName='active'>
                         INFORMACION
-                    </Item>
-                </Link>
 
-                <Link to={`/person/${personID}/credits`} activeClassName='active'>
-                    <Item>
+                    </Link>
+                </Item>
+
+                <Item>
+                    <Link to={`/person/${personID}/credits`} activeClassName='active'>
+
                         CREDITOS
-                    </Item>
-                </Link>
 
-            </List>
+                    </Link>
+                </Item>
+
+            </StyledList>
         </NavBar >
     )
 }

@@ -4,14 +4,18 @@ import { Flex, List, ListItem } from '../../Commons'
 
 //STYLES
 const ContainerMovieList = styled(Flex)`
-max-width:425px;
-height: 550px
+max-width:455px;
+height: 550px;
+margin: ${({ theme }) => theme.margin.large} 0;
 `
 const ContainerTitle = styled(Flex)`
-padding:  ${({ theme }) => theme.padding.medium} 0;
-background-color: ${props => props.theme.colors.primary};
+padding: ${({ theme }) => theme.padding.medium} ;
+background-color:  ${props => props.theme.colors.primary} ;
 width: 100%;
-
+`
+const StyledList = styled(List)`
+flex-direction: column;
+justify-content: space-between;
 `
 const Title = styled.h2`
 color: ${props => props.theme.colors.textDark};
@@ -33,8 +37,8 @@ const MovieList = ({ movies, listName }) => {
                 <Title> {listName} </Title>
             </ContainerTitle>
 
-            <Container>
-                <List>
+            <Container >
+                <StyledList>
                     {movies.map(movie => {
 
                         return (
@@ -48,7 +52,7 @@ const MovieList = ({ movies, listName }) => {
                         )
 
                     })}
-                </List>
+                </StyledList>
             </Container>
         </ContainerMovieList>
     )

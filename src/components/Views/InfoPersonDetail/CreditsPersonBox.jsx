@@ -9,19 +9,19 @@ display: flex;
 flex-flow: row wrap;
 justify-content:center;
 align-items: flex-start;
-background-color: black;
+background-color: ${({ theme }) => theme.colors.tertiary};
 padding: 20px 0
 `
 
 const Credits = () => {
     let { id } = useParams()
-    let movies = useFetch(`${id}/movie_credits`, 'person')
+    let movies = useFetch(`${id}/movie_credits?`, 'person')
 
     return (
         <Container>
 
             {movies.cast && movies.cast.map((movie) => {
-                return <Link to={`/movie/${movie.id}/info`}>
+                return <Link key={movie.id} to={`/movie/${movie.id}/info`}>
                     <CastCard
                         key={movie.id}
                         img={movie.poster_path}

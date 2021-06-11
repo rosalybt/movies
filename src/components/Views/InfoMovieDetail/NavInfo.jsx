@@ -7,10 +7,15 @@ import { List, Nav } from '../../Commons'
 const NavBar = styled(Nav)`
 padding: 0 ${({ theme }) => theme.padding.large};
 margin-bottom: ${({ theme }) => theme.margin.medium} 0;
+
 `;
 
 const ListOfItems = styled(List)`
 justify-content: space-around;
+@media screen and (max-width: 768px) {
+   flex-wrap:wrap;
+   margin: ${({ theme }) => theme.margin.medium};
+  }
 `;
 
 const Item = styled.li`
