@@ -25,11 +25,12 @@ const Home = () => {
             justifyContent="center"
             alignItems="normal"
         >
-            { nowPlaying && <Carousel movieList={nowPlaying}></Carousel>}
+            {nowPlaying && <Carousel movieList={nowPlaying}></Carousel>}
 
             <ContainerMovieList
                 flexDirection
                 justifyContent="space-evenly"
+                flexWrap="wrap"
             >
                 {popularMovies && <MovieList movies={popularMovies} listName='Peliculas Populares' />}
                 {topRated && <MovieList movies={topRated} listName='Peliculas Mejor Puntuadas' />}

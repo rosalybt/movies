@@ -18,11 +18,16 @@ const Container = styled(Flex)`
 padding: ${(props) => props.padding || 0};
 width: ${(props) => props.width};
 height: ${(props) => props.height};
+background-color: ${({ theme }) => theme.colors.tertiary};
 `
 
 const ContainerPost = styled(Flex)`
 width: 100vw;
 height: 100vh;
+
+@media screen and (max-width: 768px) {
+    height: 50vh;
+  }
 `
 
 const Image = styled.img`

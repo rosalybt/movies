@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from 'styled-components'
-import Button from '../../SharedComponents/Button';
 import { Link } from 'react-router-dom';
-import { Flex } from '../../Commons'
+import { Flex, Button } from '../../Commons'
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 
 // STYLES
@@ -10,6 +9,7 @@ const ContainerItem = styled(Flex)`
 padding: 0 ${({ theme }) => theme.margin.medium};
 margin: ${({ theme }) => theme.margin.small} 0;
 border-bottom: ${({ theme }) => theme.colors.border};
+
 `
 const Avatar = styled.img`
 border-radius: ${props => props.theme.shapes.rounded};
@@ -20,13 +20,20 @@ object-fit: cover;
 const Container = styled(Flex)`
 margin: ${({ theme }) => theme.margin.small} 0;
 border-bottom: none;
-border-radius: ${props => props.theme.shapes.rounded};
-border-radius: ${props => props.radius};
+width:100%;
 `
 const MovieTitle = styled.h4`
 font-weight: lighter;
-text-align: left;
-margin-left: ${({ theme }) => theme.margin.medium};
+text-align: justify;
+
+margin: 0 ${({ theme }) => theme.margin.medium};
+`
+
+const StyledButton = styled(Button)`
+border-radius: ${({ theme }) => theme.shapes.rounded};
+color: ${({ theme }) => theme.colors.textDark};
+padding: ${({ theme }) => theme.padding.medium};
+background-color:${({ theme }) => theme.colors.secondary}
 `
 
 // COMPONENT
@@ -36,32 +43,33 @@ const ItemList = ({ id, img, title }) => {
         <ContainerItem
             alignItems="center"
             justifyContent="space-between"
-        >
-            <Container alignItems="center" >
+            flexDirection
 
-                <Container >
+        >
+            <Container alignItems="center"
+                justifyContent="space-between" >
+
+                <Container justifyContent="space-between" alignItems="center" >
                     <Avatar
                         aria-label="poster de pelicula"
                         src={`https://image.tmdb.org/t/p/w500/${img}`}
                     />
-                </Container>
 
-                <Container >
-                    <MovieTitle> {title}</MovieTitle>
+                    <Container>
+                        <MovieTitle> {title}</MovieTitle>
+                    </Container>
+
+
+                    <Link to={`/movie/${id}/info`}>
+                        <StyledButton aria-label="mas informacion" >
+                            <ChevronRightIcon />
+                        </StyledButton>
+                    </Link>
                 </Container>
 
             </Container>
 
-            <Container>
-                <Link to={`/movie/${id}/info`}>
-                    <Button
-                        content={<ChevronRightIcon />}
-                        radius="50%"
-                        color="#fff"
-                        padding="8px 10px"
-                        aria-label="mas informacion" />
-                </Link>
-            </Container>
+
         </ContainerItem>
     )
 }

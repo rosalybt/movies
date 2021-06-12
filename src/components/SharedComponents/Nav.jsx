@@ -1,8 +1,7 @@
 import styled from 'styled-components';
-import Logo from '../../utils/logo.png'
-import { NavLink } from 'react-router-dom'
-import { List, ListItem } from '../Commons'
-
+import Logo from '../../utils/logo.png';
+import { NavLink } from 'react-router-dom';
+import { List, ListItem } from '../Commons';
 
 const NavBar = styled.nav`
 background-color:  ${props => props.theme.colors.primary};
@@ -10,12 +9,26 @@ color:${props => props.theme.colors.text};
 display: flex;
 flex-direction: row;
 justify-content: flex-start;
+
+@media screen and (max-width: 768px) {
+    width:100%;
+}
+
 `;
 
 const NavList = styled(List)`
-display: flex;
 justify-content: space-around;
-margin:0;
+width:55%;
+
+@media screen and (max-width: 425px) {
+    justify-content:flex-start;
+flex-wrap: wrap;
+
+  }
+  @media screen and (max-width: 768px) {
+    width:100%
+
+  }
 `
 
 const Item = styled(ListItem)`
@@ -39,10 +52,13 @@ width: 90px;
 
 
 
+
+
+
 const Nav = () => {
 
     return (
-        <NavBar>
+        < NavBar >
             <NavList>
                 <Link exact to="/" activeClassName='selected'>
                     <Image src={Logo} alt="logo" />
@@ -72,6 +88,8 @@ const Nav = () => {
                     </Item>
                 </Link>
             </NavList>
+
+
 
         </NavBar >
     )

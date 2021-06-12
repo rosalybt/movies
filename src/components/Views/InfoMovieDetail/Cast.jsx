@@ -17,7 +17,7 @@ const Cast = (id) => {
         <Container justifyContent="center">
 
             {casting.cast && casting.cast.map((cast) => {
-                return <Link to={`/person/${cast.id}/info`}>
+                return <Link key={cast.id} to={`/person/${cast.id}/info`}>
                     <CastCard
                         key={cast.id}
                         img={cast.profile_path}

@@ -2,9 +2,9 @@ import React from 'react-dom'
 import { Link } from 'react-router-dom';
 import styled from 'styled-components'
 import Slider from 'react-styled-carousel';
-import ButtonSimple from '../../SharedComponents/Button'
+// import ButtonSimple from '../../SharedComponents/Button'
 import { BASE_URL_IMG_ORIGINAL, convertToUppercase } from '../../../utils/Variables';
-import { Flex } from '../../Commons'
+import { Flex, Button } from '../../Commons'
 
 
 //STYLES
@@ -17,17 +17,29 @@ padding: ${({ theme }) => theme.padding.large};
 bottom: ${({ theme }) => theme.sizes.large};
 width: 50%;
 
+@media screen and (max-width: 768px) {
+    width: 90%;
+  }
+
 `
 const Container = styled(Flex)`
 position: relative;
-height: 60vh;
+height:60vh;
 background: url(${props => props.urlImg || "none"}) no-repeat  ;
 background-size: cover;
+
+@media screen and (max-width: 768px) {
+    height:30vh;
+  }
+
+
 `
 
-const Button = styled(ButtonSimple)`
+const StyledButton = styled(Button)`
 background-color: ${({ theme }) => theme.colors.secondary};
 color:${({ theme }) => theme.colors.textDark} ;
+border-radius: ${({ theme }) => theme.shapes.corner};
+padding: ${({ theme }) => theme.padding.medium};
 `
 
 const Title = styled.h2`
@@ -58,13 +70,9 @@ const Item = ({ item }) => {
                 <Title>{item.name}</Title>
                 <Description>{item.description}</Description>
                 <Link to={`/movie/${item.id}/info`}>
-                    <Button
-                        content="Ver mas detalles de la pelicula"
-                        bgcolor="#1883ba"
-                        color="#fff"
-                        radius="5px"
-                        padding="10px 15px"
-                    />
+                    <StyledButton>
+                        Ver mas detalles de la pelicula
+                    </StyledButton>
                 </Link>
             </MoreInfoBox>
         </Container >
@@ -75,12 +83,12 @@ const Item = ({ item }) => {
 //COMPONENT
 const Caurosel = ({ movieList }) => {
 
-    let movies = movieList.map(movie => {
+    let movies = movieList.map(({ id, title, overview, backdrop_path }) => {
         return {
-            id: movie.id,
-            name: convertToUppercase(movie.title),
-            description: movie.overview,
-            img: movie.backdrop_path
+            id: id,
+            name: convertToUppercase(title),
+            description: overview,
+            img: backdrop_path
         }
     })
 
@@ -91,20 +99,11 @@ const Caurosel = ({ movieList }) => {
             autoSlide
             padding="0px"
         >
-            {/* {solo me toma los desliza los slides si estan de esta manera,
-             o sea componoentes tras componente } */}
-
             {movies.length && <Item key={1} item={movies[0]} />}
             {movies.length && <Item key={2} item={movies[1]} />}
             {movies.length && <Item key={3} item={movies[2]} />}
             {movies.length && <Item key={4} item={movies[3]} />}
             {movies.length && <Item key={5} item={movies[4]} />}
-
-
-            {/* {pero si lo tengo es un array no se desliza automaticamente,
-                 solo si le doy click a los botones(dots)} */}
-
-            {/* {  movies.map((movie, i) => <div> <Item key={i} item={movie} /></div>)} */}
         </Slider >
 
     )

@@ -13,7 +13,7 @@ padding: ${({ theme }) => theme.padding.medium};
 `
 
 const Subtitle = styled.h2`
-padding: 10%;
+padding: 20vh;
 `
 
 const Trailer = (id) => {
