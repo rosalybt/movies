@@ -27,6 +27,7 @@ border: 1px solid #e8e8e8;
 padding: 10px;
 `
 
+// por que una funcion tradicional aca? deberias ser consistente y usar siempre arrow functions
 export default function CustomizedInputBase({ handleInput }) {
     const [inputValue, setInputValue] = useState('')
 

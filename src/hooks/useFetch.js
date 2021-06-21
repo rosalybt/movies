@@ -6,6 +6,7 @@ const useFetch = (param, resource) => {
     const [search, setSearch] = useState([])
 
     useEffect(() => {
+        console.log(URL)
         fetch(URL)
             .then(res => res.json())
             .then(data => setSearch(data))

@@ -82,6 +82,8 @@ const InfoBox = (id) => {
         runtime, genres, production_companies, budget, revenue } = UseFetch(`${id}?`, 'movie')
     let IMAGE_PATH = BASE_URL_IMG + poster_path
 
+    console.log(movieTitle)
+
     return (
         <ContainerInfoBox
             flexDirection="row"

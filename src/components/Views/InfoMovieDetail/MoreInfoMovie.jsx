@@ -42,6 +42,10 @@ const MoreInfo = () => {
     let { id } = useParams()
     const { backdrop_path } = UseFetch(`${id}?`, 'movie')
 
+    // este componente no se vuelve a renderear cuando hago click en una de las peliculas de similares
+    // repensalo: cada uno de esos componentes hace un fetch, cuando deberia ser este, el padre de todos, el que haga ese fetch
+    // y deberia hacer ese fetch cada vez que cambia la variable id de params
+
     return (
 
         <ContainerMoreInfo

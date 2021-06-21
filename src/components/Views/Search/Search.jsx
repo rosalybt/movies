@@ -8,6 +8,7 @@ import { createUrl } from '../../../utils/Variables'
 const Search = () => {
     const { params } = useRouteMatch()
     const [{ results: topRated, page, total_pages }, setMovies] = useState({})
+    // ojo con la mayuscula, deberia ser setSearch
     const [search, SetSearch] = useState()
 
     useEffect(() => {

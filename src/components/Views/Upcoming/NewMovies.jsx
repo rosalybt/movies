@@ -21,6 +21,7 @@ const NewMovies = () => {
     const { params } = useRouteMatch()
     const [{ results: movies, page, total_pages }, setMovies] = useState({})
 
+    // podrias usar un custom hook aca 
     useEffect(() => {
         fetch(createUrl('upcoming?', 'movie', params.num))
             .then(res => res.json())
