@@ -40,7 +40,7 @@ const MovieList = ({ movies, listName }) => {
             <Container >
                 <StyledList>
                     {movies.map(movie => {
-
+{/* privilegia el return implicito cuando estas haciendo un map en jsx */}
                         return (
                             <ListItem key={movie.id}>
                                 <Item

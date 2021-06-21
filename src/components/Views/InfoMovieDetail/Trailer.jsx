@@ -26,9 +26,11 @@ const Trailer = (id) => {
             justifyContent="center"
             alingItems="center"
         >
+                    {/* deberia ser videos.results, creo que esto siempre da no disponible */}
             {videos.length ?
                 <VideoFrame title={videos[0].name}
                     allowfullscreen
+                    // esto siempre va a dar youtube, porque ese string siempre es truthy
                     src={`https://www.youtube.com/embed/${videos[0].key}` || `https://player.vimeo.com/video/${videos[0].key}`}
                 />
                 : <Subtitle>{msj}</Subtitle>

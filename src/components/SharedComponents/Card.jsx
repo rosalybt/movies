@@ -41,6 +41,7 @@ const Card = ({ img, title }) => {
 
             <ContainerImg justifyContent>
                 <Image
+                // excelente
                     src={img ? BASE_URL_IMG_MEDIUM + img : NOT_AVAILABLE}
                     alt={`${title} poster`}
                 />

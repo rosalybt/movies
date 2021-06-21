@@ -16,6 +16,8 @@ margin-bottom: 50px
 const PaginationRounded = ({ page = 1, totalPages = 1 }) => {
     const { push, location } = useHistory()
     const URL = getRootURL(location.pathname)
+    // ojo con las mayusculas aca, deberia ser setInitialState
+    // por que este estado es un objeto si solo guarda un valor? podria ser currentPage y ya 
     const [initialState, setTinitialState] = useState({ currentPage: parseInt(page), })
 
     return (

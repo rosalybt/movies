@@ -15,6 +15,8 @@ background-color: ${props => props.theme.colors.tertiary};
 
 
 const Home = () => {
+    // detalle, pero los hooks los escribimos en minuscula (useFetch) y reservamos la mayuscula para componentes
+    // muy bien el desestructurado!
     const { results: popularMovies } = UseFetch('popular?', 'movie')
     const { results: topRated } = UseFetch('top_rated?', 'movie')
     const { results: nowPlaying } = UseFetch('upcoming?', 'movie')

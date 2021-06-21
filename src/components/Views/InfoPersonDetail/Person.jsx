@@ -12,7 +12,8 @@ const ContainerPerson = styled(Flex)`
 
 const Person = () => {
     const { id } = useParams()
-
+// tenes el mismo problema aqui que en el detalle de la pelicula, y la falta de actualizacion es por el mismo motivo
+// pone el fetch aqui, en lugar de en cada compnente de la sub-ruta
     return (
         <ContainerPerson justifyContent="center" flexDirection="column">
             <BrowserRouter>
